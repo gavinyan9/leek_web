@@ -8,10 +8,11 @@ export function getBkList(params) {
     params
   })
 }
+
 // 查询我的收藏
 export function getCollectList(params) {
   return request({
-    url: '/apis/stock/collect',
+    url: '/apis/sk_collect/list',
     method: 'get',
     params
   })
@@ -20,7 +21,7 @@ export function getCollectList(params) {
 // 添加我的收藏
 export function addCollect(data) {
   return request({
-    url: '/apis/stock/collect/add',
+    url: '/apis/sk_collect/add',
     method: 'post',
     data
   })
@@ -29,7 +30,7 @@ export function addCollect(data) {
 // 移除我的收藏
 export function delCollect(params) {
   return request({
-    url: '/apis/stock/collect/del',
+    url: '/apis/sk_collect/del',
     method: 'get',
     params
   })
@@ -38,7 +39,7 @@ export function delCollect(params) {
 // 点赞
 export function thumbsUp(params) {
   return request({
-    url: '/apis/stock/collect/thumbs-up',
+    url: '/apis/sk_collect/thumbs-up',
     method: 'get',
     params
   })
@@ -48,23 +49,6 @@ export function thumbsUp(params) {
 export function getMarketList(params) {
   return request({
     url: '/apis/stock/market/list',
-    method: 'get',
-    params
-  })
-}
-
-// 股票评分
-export function mkGrade(params) {
-  return request({
-    url: '/apis/stock/market/grade',
-    method: 'get',
-    params
-  })
-}
-
-export function getTxData(params) {
-  return request({
-    url: '/apis/stock/cj/tx',
     method: 'get',
     params
   })
@@ -88,14 +72,6 @@ export function saveNotes(data) {
   })
 }
 
-// 技术评分
-export function techScore(params) {
-  return request({
-    url: '/apis/sk_tech/score',
-    method: 'get',
-    params
-  })
-}
 // 移除Tech数据
 export function techDel(params) {
   return request({
@@ -104,19 +80,11 @@ export function techDel(params) {
     params
   })
 }
+
 // 关注股票实时排名
 export function techList(params) {
   return request({
     url: '/apis/sk_tech/list',
-    method: 'get',
-    params
-  })
-}
-
-// 关注股票实时排名
-export function techAdd(params) {
-  return request({
-    url: '/apis/sk_tech/add',
     method: 'get',
     params
   })
@@ -144,15 +112,6 @@ export function loadReal(params) {
 export function clearReal(params) {
   return request({
     url: '/apis/sk_tech/clear',
-    method: 'get',
-    params
-  })
-}
-
-// 评分归零
-export function zeroReal(params) {
-  return request({
-    url: '/apis/sk_tech/zero',
     method: 'get',
     params
   })

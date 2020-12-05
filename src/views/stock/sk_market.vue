@@ -19,12 +19,6 @@
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
-      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="getTxDataFunc">
-        采集
-      </el-button>
-      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="mkGradeFunc">
-        评分
-      </el-button>
     </div>
     <el-table
       v-loading="listLoading"
@@ -42,18 +36,17 @@
       <el-table-column label="名称" prop="sk_name" width="78" />
       <el-table-column label="板块" prop="bk_name" width="92" />
       <el-table-column label="现价" width="68" prop="sk_xj" />
-      <el-table-column label="±(1)" align="center" width="76" prop="sk_zdf" sortable />
-      <el-table-column label="±(2)" align="center" width="76" prop="sk_last2" sortable />
-      <el-table-column label="±(3)" align="center" width="76" prop="sk_last3" sortable />
-      <el-table-column label="±(5)" align="center" width="58" prop="sk_last5" />
-      <el-table-column label="±D" align="center" width="66" prop="sk_zdt" sortable />
       <el-table-column label="市值(亿)" align="center" width="82" prop="sk_ltsz" />
+      <el-table-column label="1D" align="center" width="70" prop="sk_zdf" sortable />
+      <el-table-column label="5D" align="center" width="60" prop="day5" />
+      <el-table-column label="月" align="center" width="58" prop="mon_last30" />
+      <el-table-column label="年" align="center" width="66" prop="year1" />
       <el-table-column label="评分" align="center" width="58" prop="sk_score" />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="addCollectFunc(scope.row)">收藏</el-button>
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="thumbsUpHandler(scope.row)">点赞</el-button>
+          <el-button type="text" size="small" @click="thumbsUpHandler(scope.row)">赞</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -68,7 +61,7 @@
 </template>
 
 <script>
-import { addCollect, getMarketList, getTxData, mkGrade, thumbsUp, getBkList } from '@/api/stock'
+import { addCollect, getBkList, getMarketList, thumbsUp } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -107,27 +100,6 @@ export default {
         this.bkList = response.data
       })
     },
-    getTxDataFunc() {
-      getTxData().then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'Sync Successfully',
-          type: 'success',
-          duration: 6000
-        })
-      })
-    },
-    mkGradeFunc() {
-      mkGrade().then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'mkGrade Successfully',
-          type: 'success',
-          duration: 6000
-        })
-        this.fetchData()
-      })
-    },
     changeSort(val) {
       this.listQuery.sort = val.prop
       this.fetchData()
@@ -145,7 +117,7 @@ export default {
           title: 'Success',
           message: 'Collect Successfully',
           type: 'success',
-          duration: 6000
+          duration: 3000
         })
         this.fetchData()
       })
@@ -164,7 +136,7 @@ export default {
           title: 'Success',
           message: 'thumbs-up Successfully',
           type: 'success',
-          duration: 6000
+          duration: 3000
         })
         this.fetchData()
       })

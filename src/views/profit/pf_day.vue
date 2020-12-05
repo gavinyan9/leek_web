@@ -39,7 +39,7 @@
         </template>
       </el-table-column>
       <el-table-column align="center" label="代码" prop="skCode" width="68" />
-      <el-table-column label="名称" prop="skName" width="70" />
+      <el-table-column label="名称" prop="skName" width="78" />
       <el-table-column label="板块" width="70" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="市值(亿)" align="center" width="72" prop="skLtsz" />
