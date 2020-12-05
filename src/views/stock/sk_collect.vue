@@ -25,7 +25,6 @@
       <el-table-column label="名称" prop="sk_name" width="80" />
       <el-table-column label="现价" prop="sk_xj" width="80" />
       <el-table-column label="涨跌幅" align="center" prop="sk_zdf" width="66" />
-      <el-table-column label="涨跌天" align="center" prop="sk_zdt" width="66" />
       <el-table-column label="持股量" prop="sk_hold" width="66" />
       <el-table-column label="持股额" prop="hold_money" width="68" />
       <el-table-column label="市值(亿)" prop="sk_ltsz" align="center" width="102" />
