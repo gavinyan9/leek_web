@@ -24,9 +24,9 @@
       <el-table-column label="现价" prop="sk_xj" width="80" />
       <el-table-column label="±(1)" align="center" prop="sk_zdf" width="66" />
       <el-table-column label="±(10)" align="center" width="78" prop="sk_last10" />
-      <el-table-column label="2020" align="center" width="70" prop="sk_year20" />
-      <el-table-column label="2019" align="center" width="70" prop="sk_year19" />
-      <el-table-column label="2018" align="center" width="70" prop="sk_year18" />
+      <el-table-column label="2020" align="center" width="70" prop="year1" />
+      <el-table-column label="2019" align="center" width="70" prop="year2" />
+      <el-table-column label="2018" align="center" width="70" prop="year3" />
       <el-table-column label="市值(亿)" align="center" width="88" prop="sk_ltsz" />
       <el-table-column label="评分" align="center" prop="sk_score" width="50" />
       <el-table-column fixed="right" label="操作" width="120">

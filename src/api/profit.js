@@ -8,3 +8,12 @@ export function getPfMonPages(params) {
     params
   })
 }
+
+// 个股日收益率列表
+export function getPfDayPages(params) {
+  return request({
+    url: '/apis/pf_day/pages',
+    method: 'get',
+    params
+  })
+}

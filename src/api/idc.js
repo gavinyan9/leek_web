@@ -18,15 +18,6 @@ export function addCmpToSkInfo(params) {
   })
 }
 
-// Profit更新板块信息
-export function editType(params) {
-  return request({
-    url: '/apis/sk_profit/update',
-    method: 'get',
-    params
-  })
-}
-
 // Profit点赞
 export function thumbsUpProfit(params) {
   return request({

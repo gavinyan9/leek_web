@@ -8,15 +8,20 @@ const idcRouter = {
   component: Layout,
   meta: { title: 'IDC', icon: 'chart' },
   children: [{
-    path: 'pf_year',
-    name: '个股年收益率',
-    component: () => import('@/views/profit/pf_year'),
-    meta: { title: '个股年收益率', icon: 'chart' }
+    path: 'pf_day',
+    name: '日收益率',
+    component: () => import('@/views/profit/pf_day'),
+    meta: { title: '日收益率', icon: 'chart' }
   }, {
     path: 'pf_mon',
-    name: '个股月收益率',
+    name: '月收益率',
     component: () => import('@/views/profit/pf_mon'),
-    meta: { title: '个股月收益率', icon: 'chart' }
+    meta: { title: '月收益率', icon: 'chart' }
+  }, {
+    path: 'pf_year',
+    name: '年收益率',
+    component: () => import('@/views/profit/pf_year'),
+    meta: { title: '年收益率', icon: 'chart' }
   }, {
     path: 'watch',
     name: '价值分析',
