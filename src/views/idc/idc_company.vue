@@ -13,6 +13,20 @@
         style="width: 120px;margin-left:3px;"
         @keyup.enter.native="handleFilter"
       />
+      <el-select v-model="listQuery.bk_code" placeholder="板块名称" style="width: 120px;margin-left:3px;">
+        <el-option
+          v-for="item in bkList"
+          :key="item.bk_code"
+          :label="item.bk_name"
+          :value="item.bk_code"
+        />
+      </el-select>
+      <el-input
+        v-model="listQuery.bk_remark"
+        placeholder="二级板块"
+        style="width: 120px;margin-left:3px;"
+        @keyup.enter.native="handleFilter"
+      />
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
@@ -34,11 +48,13 @@
       <el-table-column align="center" label="代码" prop="skCode" width="88" />
       <el-table-column label="名称" prop="skName" width="96" />
       <el-table-column label="板块" prop="bkName" width="96" />
-      <el-table-column label="板块详情" prop="bkRemark" width="260" />
-      <el-table-column fixed="right" label="操作" width="160">
+      <el-table-column label="板块详情" prop="bkRemark" width="230" />
+      <el-table-column label="现价" width="76" prop="skXj" />
+      <el-table-column label="市值(亿)" align="center" width="90" prop="skLtsz" sortable />
+      <el-table-column label="年化" align="center" width="90" prop="year1" sortable />
+      <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="addCmpToSkInfoFunc(scope.row)">market</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -53,7 +69,8 @@
 </template>
 
 <script>
-import { companyPages, addCmpToSkInfo } from '@/api/idc'
+import { companyPages } from '@/api/idc'
+import { getBkList } from '@/api/stock'
 
 import Pagination from '@/components/Pagination'
 
@@ -70,38 +87,33 @@ export default {
         limit: 30,
         sk_code: '',
         sk_name: '',
-        sort: 'sk_score'
+        bk_code: '',
+        bk_remark: '',
+        sort: 'skLtsz'
       },
-      updateSkData: {
-        sk_code: '',
-        is_new: '1'
-      },
-      dialogFormVisible: false,
-      dialogPvVisible: false
+      bkList: [{
+        bk_code: '全部',
+        bk_name: ''
+      }]
     }
   },
   created() {
     this.fetchData()
+    this.getBkListFunc()
   },
   methods: {
-    changeSort(val) {
-      this.listQuery.sort = val.prop
-      this.fetchData()
+    getBkListFunc() {
+      getBkList().then(response => {
+        this.bkList = response.data
+      })
     },
     handleFilter() {
       this.listQuery.page = 1
       this.fetchData()
     },
-    addCmpToSkInfoFunc(row) {
-      addCmpToSkInfo({ sk_code: row.skCode }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'Collect Successfully',
-          type: 'success',
-          duration: 3000
-        })
-        this.fetchData()
-      })
+    changeSort(val) {
+      this.listQuery.sort = val.prop
+      this.fetchData()
     },
     goDetail(row) {
       window.open('http://stockpage.10jqka.com.cn/' + row.skCode)

@@ -9,15 +9,6 @@ export function companyPages(params) {
   })
 }
 
-// 将新的上市公司纳入考察范围
-export function addCmpToSkInfo(params) {
-  return request({
-    url: '/apis/comp/add/market',
-    method: 'get',
-    params
-  })
-}
-
 // Profit点赞
 export function thumbsUpProfit(params) {
   return request({

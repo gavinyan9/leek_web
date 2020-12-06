@@ -10,17 +10,17 @@ const idcRouter = {
   children: [{
     path: 'pf_day',
     name: '日收益率',
-    component: () => import('@/views/profit/pf_day'),
+    component: () => import('@/views/idc/pf_day'),
     meta: { title: '日收益率', icon: 'chart' }
   }, {
     path: 'pf_mon',
     name: '月收益率',
-    component: () => import('@/views/profit/pf_mon'),
+    component: () => import('@/views/idc/pf_mon'),
     meta: { title: '月收益率', icon: 'chart' }
   }, {
     path: 'pf_year',
     name: '年收益率',
-    component: () => import('@/views/profit/pf_year'),
+    component: () => import('@/views/idc/pf_year'),
     meta: { title: '年收益率', icon: 'chart' }
   }, {
     path: 'watch',

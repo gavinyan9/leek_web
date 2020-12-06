@@ -1,10 +1,6 @@
 <template>
   <div class="app-container">
-    <div class="filter-container" style="padding-bottom: 6px;">
-      <el-button class="filter-item" style="margin-left: 8px;" type="primary" icon="el-icon-edit" @click="syncData">
-        Sync
-      </el-button>
-    </div>
+    <div class="filter-container" style="padding-bottom: 6px;" />
     <el-table
       v-loading="listLoading"
       :data="list"
@@ -22,12 +18,12 @@
       <el-table-column label="名称" prop="sk_name" width="80" />
       <el-table-column label="板块" prop="bk_name" width="80" />
       <el-table-column label="现价" prop="sk_xj" width="80" />
-      <el-table-column label="±(1)" align="center" prop="sk_zdf" width="66" />
-      <el-table-column label="±(10)" align="center" width="78" prop="sk_last10" />
-      <el-table-column label="2020" align="center" width="70" prop="year1" />
-      <el-table-column label="2019" align="center" width="70" prop="year2" />
-      <el-table-column label="2018" align="center" width="70" prop="year3" />
-      <el-table-column label="市值(亿)" align="center" width="88" prop="sk_ltsz" />
+      <el-table-column label="1D" align="center" prop="sk_zdf" width="66" />
+      <el-table-column label="30D" align="center" prop="mon_last30" width="78" />
+      <el-table-column label="2020" align="center" prop="year1" width="70" />
+      <el-table-column label="2019" align="center" prop="year2" width="70" />
+      <el-table-column label="2018" align="center" prop="year3" width="70" />
+      <el-table-column label="市值(亿)" align="center" prop="sk_ltsz" width="88" />
       <el-table-column label="评分" align="center" prop="sk_score" width="50" />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
@@ -40,7 +36,7 @@
 </template>
 
 <script>
-import { delSkWatch, skWatchList, syncRealData } from '@/api/stock'
+import { delSkWatch, skWatchList } from '@/api/stock'
 
 export default {
   name: 'SkWatch',
@@ -58,17 +54,6 @@ export default {
       skWatchList().then(response => {
         this.list = response.data
         this.listLoading = false
-      })
-    },
-    syncData() {
-      syncRealData({ param: 'collect' }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'Update Successfully',
-          type: 'success',
-          duration: 6000
-        })
-        this.fetchData()
       })
     },
     delSkWatchFunc(row) {
