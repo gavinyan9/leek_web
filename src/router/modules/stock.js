@@ -18,11 +18,6 @@ const stockRouter = {
     component: () => import('@/views/stock/sk_market'),
     meta: { title: 'Market', icon: 'table', affix: true }
   }, {
-    path: 'tech',
-    name: '技术选股',
-    component: () => import('@/views/stock/sk_tech'),
-    meta: { title: '技术选股', icon: 'search', affix: true }
-  }, {
     path: 'note',
     name: 'Notes',
     component: () => import('@/views/stock/sk_note'),

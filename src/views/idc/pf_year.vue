@@ -50,15 +50,16 @@
       <el-table-column align="center" label="代码" prop="skCode" width="68" />
       <el-table-column label="名称" prop="skName" width="78" />
       <el-table-column label="板块" width="80" prop="bkName" />
+      <el-table-column label="二级板块" prop="bkRemark" width="96" />
       <el-table-column label="现价" width="66" prop="skXj" />
-      <el-table-column label="90D" align="center" width="60" prop="monLast90" />
-      <el-table-column label="60D" align="center" width="60" prop="monLast60" />
-      <el-table-column label="30D" align="center" width="60" prop="monLast30" />
-      <el-table-column label="2020" align="center" width="70" prop="year1" />
-      <el-table-column label="2019" align="center" width="70" prop="year2" />
-      <el-table-column label="2018" align="center" width="70" prop="year3" />
-      <!--  <el-table-column label="2017" align="center" width="70" prop="year4"></el-table-column>-->
-      <el-table-column label="市值(亿)" align="center" width="80" prop="skLtsz" />
+      <el-table-column label="90D" align="center" width="50" prop="monLast90" />
+      <el-table-column label="60D" align="center" width="50" prop="monLast60" />
+      <el-table-column label="30D" align="center" width="50" prop="monLast30" />
+      <el-table-column label="2020" align="center" width="60" prop="year1" />
+      <el-table-column label="2019" align="center" width="60" prop="year2" />
+      <el-table-column label="2018" align="center" width="60" prop="year3" />
+      <!--<el-table-column label="2017" align="center" width="60" prop="year4"></el-table-column>-->
+      <el-table-column label="市值" align="center" width="60" prop="skLtsz" />
       <el-table-column label="评分" align="center" width="50" prop="skScore" />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">

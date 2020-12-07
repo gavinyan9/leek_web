@@ -42,17 +42,17 @@
       <el-table-column label="名称" prop="skName" width="78" />
       <el-table-column label="板块" width="70" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="市值(亿)" align="center" width="72" prop="skLtsz" />
-      <el-table-column label="7D" align="center" width="52" prop="day7" />
-      <el-table-column label="6D" align="center" width="52" prop="day6" />
-      <el-table-column label="5D" align="center" width="52" prop="day5" />
-      <el-table-column label="4D" align="center" width="52" prop="day4" />
-      <el-table-column label="3D" align="center" width="52" prop="day3" />
-      <el-table-column label="2D" align="center" width="52" prop="day2" />
-      <el-table-column label="1D" align="center" width="52" prop="day1" />
-      <el-table-column label="评分" align="center" width="50" prop="skScore" />
-      <el-table-column label="月度" align="center" width="50" prop="day30" />
+      <el-table-column label="市值(亿)" align="center" width="70" prop="skLtsz" />
       <el-table-column label="年化" align="center" width="56" prop="year1" />
+      <el-table-column label="月度" align="center" width="50" prop="day30" />
+      <el-table-column label="1D" align="center" width="52" prop="day1" />
+      <el-table-column label="2D" align="center" width="52" prop="day2" />
+      <el-table-column label="3D" align="center" width="52" prop="day3" />
+      <el-table-column label="4D" align="center" width="52" prop="day4" />
+      <el-table-column label="5D" align="center" width="52" prop="day5" />
+      <el-table-column label="6D" align="center" width="52" prop="day6" />
+      <el-table-column label="7D" align="center" width="52" prop="day7" />
+      <el-table-column label="评分" align="center" width="50" prop="skScore" />
       <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
