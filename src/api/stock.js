@@ -27,6 +27,15 @@ export function addCollect(data) {
   })
 }
 
+// 添加我的收藏
+export function updateGj(data) {
+  return request({
+    url: '/apis/sk_collect/updateGj',
+    method: 'get',
+    data
+  })
+}
+
 // 移除我的收藏
 export function delCollect(params) {
   return request({
@@ -69,51 +78,6 @@ export function saveNotes(data) {
     url: '/apis/sk_notes/add',
     method: 'post',
     data
-  })
-}
-
-// 移除Tech数据
-export function techDel(params) {
-  return request({
-    url: '/apis/sk_tech/del',
-    method: 'get',
-    params
-  })
-}
-
-// 关注股票实时排名
-export function techList(params) {
-  return request({
-    url: '/apis/sk_tech/list',
-    method: 'get',
-    params
-  })
-}
-
-// 调用TX刷新股票实时排名
-export function syncRealData(params) {
-  return request({
-    url: '/apis/sk_tech/sync_xj',
-    method: 'get',
-    params
-  })
-}
-
-// 加载评分数据，做实时排名
-export function loadReal(params) {
-  return request({
-    url: '/apis/sk_tech/load',
-    method: 'get',
-    params
-  })
-}
-
-// 清空实时估计分析列表数据
-export function clearReal(params) {
-  return request({
-    url: '/apis/sk_tech/clear',
-    method: 'get',
-    params
   })
 }
 

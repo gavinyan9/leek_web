@@ -33,27 +33,28 @@
       fit
       highlight-current-row
     >
-      <el-table-column align="center" label="序号" width="50">
+      <el-table-column align="center" label="序号" width="46">
         <template slot-scope="scope">
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
-      <el-table-column align="center" label="代码" prop="skCode" width="68" />
-      <el-table-column label="名称" prop="skName" width="78" />
+      <el-table-column align="center" label="代码" prop="skCode" width="66" />
+      <el-table-column label="名称" prop="skName" width="70" />
       <el-table-column label="板块" width="70" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="市值(亿)" align="center" width="70" prop="skLtsz" />
-      <el-table-column label="年化" align="center" width="56" prop="year1" />
+      <el-table-column label="市值(亿)" align="center" width="68" prop="skLtsz" />
       <el-table-column label="月度" align="center" width="50" prop="day30" />
-      <el-table-column label="1D" align="center" width="52" prop="day1" />
-      <el-table-column label="2D" align="center" width="52" prop="day2" />
-      <el-table-column label="3D" align="center" width="52" prop="day3" />
-      <el-table-column label="4D" align="center" width="52" prop="day4" />
-      <el-table-column label="5D" align="center" width="52" prop="day5" />
-      <el-table-column label="6D" align="center" width="52" prop="day6" />
-      <el-table-column label="7D" align="center" width="52" prop="day7" />
+      <el-table-column label="1D" align="center" width="50" prop="day1" />
+      <el-table-column label="2D" align="center" width="50" prop="day2" />
+      <el-table-column label="3D" align="center" width="50" prop="day3" />
+      <el-table-column label="4D" align="center" width="50" prop="day4" />
+      <el-table-column label="5D" align="center" width="50" prop="day5" />
+      <el-table-column label="6D" align="center" width="50" prop="day6" />
+      <el-table-column label="7D" align="center" width="50" prop="day7" />
+      <el-table-column label="8D" align="center" width="50" prop="day8" />
       <el-table-column label="评分" align="center" width="50" prop="skScore" />
-      <el-table-column fixed="right" label="操作" width="90">
+      <el-table-column label="年化" align="center" width="50" prop="year1" />
+      <el-table-column fixed="right" label="操作" width="80">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
           <el-button type="text" size="small" @click="thumbsUpHandler(scope.row)">赞</el-button>

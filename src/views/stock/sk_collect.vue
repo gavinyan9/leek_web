@@ -4,7 +4,7 @@
       <el-button class="filter-item" style="margin-left: 8px;" type="primary" @click="handleCreate">
         Add
       </el-button>
-      <el-button class="filter-item" style="margin-left: 8px;" type="primary" @click="syncData">
+      <el-button class="filter-item" style="margin-left: 8px;" type="primary" @click="updateGjFunc">
         Sync
       </el-button>
     </div>
@@ -27,13 +27,12 @@
       <el-table-column label="涨跌幅" align="center" prop="sk_zdf" width="66" />
       <el-table-column label="持股量" prop="sk_hold" width="66" />
       <el-table-column label="持股额" prop="hold_money" width="68" />
-      <el-table-column label="市值(亿)" prop="sk_ltsz" align="center" width="102" />
+      <el-table-column label="市值(亿)" prop="sk_ltsz" align="center" width="80" />
       <el-table-column label="评分" prop="sk_score" align="center" width="50" />
-      <el-table-column fixed="right" label="操作" width="120">
+      <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="deleteData(scope.row)">移除</el-button>
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="thumbsUpHandler(scope.row)">赞</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -66,7 +65,7 @@
 </template>
 
 <script>
-import { addCollect, delCollect, getCollectList, syncRealData, thumbsUp } from '@/api/stock'
+import { addCollect, delCollect, getCollectList, updateGj } from '@/api/stock'
 
 export default {
   name: 'SkCollect',
@@ -94,8 +93,8 @@ export default {
         this.listLoading = false
       })
     },
-    syncData() {
-      syncRealData({ param: 'collect' }).then(() => {
+    updateGjFunc() {
+      updateGj().then(() => {
         this.$notify({
           title: 'Success',
           message: 'Update Successfully',
@@ -131,17 +130,6 @@ export default {
         this.$notify({
           title: 'Success',
           message: 'Deleted Successfully',
-          type: 'success',
-          duration: 3000
-        })
-        this.fetchData()
-      })
-    },
-    thumbsUpHandler(row) {
-      thumbsUp(row).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'thumbs-up Successfully',
           type: 'success',
           duration: 3000
         })

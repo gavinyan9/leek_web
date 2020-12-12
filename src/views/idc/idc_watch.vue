@@ -9,21 +9,22 @@
       fit
       highlight-current-row
     >
-      <el-table-column align="center" label="序号" width="56">
+      <el-table-column align="center" label="序号" width="46">
         <template slot-scope="scope">
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
-      <el-table-column align="center" label="代码" prop="sk_code" width="68" />
-      <el-table-column label="名称" prop="sk_name" width="72" />
-      <el-table-column label="板块" prop="bk_name" width="72" />
+      <el-table-column align="center" label="代码" prop="sk_code" width="66" />
+      <el-table-column label="名称" prop="sk_name" width="70" />
+      <el-table-column label="板块" prop="bk_name" width="70" />
       <el-table-column label="二级板块" prop="bk_remark" width="96" />
       <el-table-column label="现价" prop="sk_xj" width="58" />
-      <el-table-column label="1D" align="center" prop="sk_zdf" width="50" />
-      <el-table-column label="9月" align="center" prop="mon_last120" width="50" />
-      <el-table-column label="10月" align="center" prop="mon_last90" width="50" />
-      <el-table-column label="11月" align="center" prop="mon_last60" width="50" />
-      <el-table-column label="12月" align="center" prop="mon_last30" width="50" />
+      <el-table-column label="1D" align="center" prop="day1" width="50" />
+      <el-table-column label="2D" align="center" prop="day2" width="50" />
+      <el-table-column label="3D" align="center" prop="day3" width="50" />
+      <el-table-column label="10月" align="center" prop="mon3" width="50" />
+      <el-table-column label="11月" align="center" prop="mon2" width="50" />
+      <el-table-column label="12月" align="center" prop="mon1" width="50" />
       <el-table-column label="2020" align="center" prop="year1" width="52" />
       <el-table-column label="2019" align="center" prop="year2" width="52" />
       <el-table-column label="市值(亿)" align="center" prop="sk_ltsz" width="66" />

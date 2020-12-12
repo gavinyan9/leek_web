@@ -42,23 +42,23 @@
       highlight-current-row
       @sort-change="changeSort"
     >
-      <el-table-column align="center" label="序号" width="40">
+      <el-table-column align="center" label="序号" width="46">
         <template slot-scope="scope">
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
       <el-table-column align="center" label="代码" prop="skCode" width="66" />
-      <el-table-column label="名称" prop="skName" width="78" />
+      <el-table-column label="名称" prop="skName" width="70" />
       <el-table-column label="板块" width="80" prop="bkName" />
-      <el-table-column label="现价" width="66" prop="skXj" />
-      <el-table-column label="市值(亿)" align="center" width="70" prop="skLtsz" />
-      <el-table-column label="年化" align="center" width="58" prop="year1" />
-      <el-table-column label="12月" align="center" width="56" prop="monLast30" />
-      <el-table-column label="11月" align="center" width="56" prop="monLast60" />
-      <el-table-column label="10月" align="center" width="56" prop="monLast90" />
-      <el-table-column label="9月" align="center" width="56" prop="monLast120" />
-      <el-table-column label="8月" align="center" width="56" prop="monLast150" />
-      <el-table-column label="7月" align="center" width="56" prop="monLast180" />
+      <el-table-column label="现价" width="60" prop="skXj" />
+      <el-table-column label="市值(亿)" align="center" width="66" prop="skLtsz" />
+      <el-table-column label="年化" align="center" width="52" prop="year1" />
+      <el-table-column label="12月" align="center" width="50" prop="monLast30" />
+      <el-table-column label="11月" align="center" width="50" prop="monLast60" />
+      <el-table-column label="10月" align="center" width="50" prop="monLast90" />
+      <el-table-column label="9月" align="center" width="50" prop="monLast120" />
+      <el-table-column label="8月" align="center" width="50" prop="monLast150" />
+      <el-table-column label="7月" align="center" width="50" prop="monLast180" />
       <el-table-column label="评分" align="center" width="50" prop="skScore" />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">

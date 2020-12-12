@@ -34,14 +34,15 @@
       </el-table-column>
       <el-table-column align="center" label="代码" prop="sk_code" width="68" />
       <el-table-column label="名称" prop="sk_name" width="78" />
-      <el-table-column label="板块" prop="bk_name" width="92" />
+      <el-table-column label="板块" prop="bk_name" width="78" />
       <el-table-column label="现价" width="68" prop="sk_xj" />
-      <el-table-column label="市值(亿)" align="center" width="82" prop="sk_ltsz" />
-      <el-table-column label="1D" align="center" width="70" prop="sk_zdf" sortable />
-      <el-table-column label="5D" align="center" width="60" prop="day5" />
-      <el-table-column label="月" align="center" width="58" prop="mon_last30" />
-      <el-table-column label="年" align="center" width="66" prop="year1" />
-      <el-table-column label="评分" align="center" width="58" prop="sk_score" />
+      <el-table-column label="市值" align="center" width="62" prop="sk_ltsz" />
+      <el-table-column label="1D" align="center" width="62" prop="sk_zdf" sortable />
+      <el-table-column label="2D" align="center" width="50" prop="day2" />
+      <el-table-column label="3D" align="center" width="50" prop="day3" />
+      <el-table-column label="月" align="center" width="50" prop="mon1" />
+      <el-table-column label="年" align="center" width="60" prop="year1" />
+      <el-table-column label="评分" align="center" width="50" prop="sk_score" />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="addCollectFunc(scope.row)">收藏</el-button>
