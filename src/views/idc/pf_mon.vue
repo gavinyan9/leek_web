@@ -63,8 +63,7 @@
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">watch</el-button>
-          <el-button type="text" size="small" @click="thumbsUpHandler(scope.row)">赞</el-button>
+          <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -81,7 +80,7 @@
 </template>
 
 <script>
-import { addSkWatch, thumbsUpProfit } from '@/api/idc'
+import { addSkWatch } from '@/api/idc'
 import { getPfMonPages } from '@/api/profit'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
@@ -152,7 +151,7 @@ export default {
       addSkWatch({ sk_code: row.skCode }).then(() => {
         this.$notify({
           title: 'Success',
-          message: 'Deleted Successfully',
+          message: '收藏 Successfully',
           type: 'success',
           duration: 2000
         })
@@ -176,17 +175,6 @@ export default {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false
-      })
-    },
-    thumbsUpHandler(row) {
-      thumbsUpProfit({ sk_code: row.skCode }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'thumbs-up Successfully',
-          type: 'success',
-          duration: 2000
-        })
-        this.fetchData()
       })
     }
   }

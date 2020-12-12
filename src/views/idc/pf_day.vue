@@ -42,7 +42,7 @@
       <el-table-column label="名称" prop="skName" width="70" />
       <el-table-column label="板块" width="70" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="市值(亿)" align="center" width="68" prop="skLtsz" />
+      <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
       <el-table-column label="月度" align="center" width="50" prop="day30" />
       <el-table-column label="1D" align="center" width="50" prop="day1" />
       <el-table-column label="2D" align="center" width="50" prop="day2" />
@@ -54,10 +54,10 @@
       <el-table-column label="8D" align="center" width="50" prop="day8" />
       <el-table-column label="评分" align="center" width="50" prop="skScore" />
       <el-table-column label="年化" align="center" width="50" prop="year1" />
-      <el-table-column fixed="right" label="操作" width="80">
+      <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="thumbsUpHandler(scope.row)">赞</el-button>
+          <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { thumbsUpProfit } from '@/api/idc'
+import { addSkWatch } from '@/api/idc'
 import { getPfDayPages } from '@/api/profit'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
@@ -127,13 +127,13 @@ export default {
         this.listLoading = false
       })
     },
-    thumbsUpHandler(row) {
-      thumbsUpProfit({ sk_code: row.skCode }).then(() => {
+    addSkWatchFunc(row) {
+      addSkWatch({ sk_code: row.skCode }).then(() => {
         this.$notify({
           title: 'Success',
-          message: 'thumbs-up Successfully',
+          message: '收藏 Successfully',
           type: 'success',
-          duration: 2000
+          duration: 1000
         })
         this.fetchData()
       })

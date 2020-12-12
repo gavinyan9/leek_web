@@ -9,10 +9,10 @@ export function companyPages(params) {
   })
 }
 
-// Profit点赞
-export function thumbsUpProfit(params) {
+// 删除上市公司
+export function delCompany(params) {
   return request({
-    url: '/apis/sk_profit/updateScore',
+    url: '/apis/comp/del',
     method: 'get',
     params
   })

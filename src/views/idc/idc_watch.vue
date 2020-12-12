@@ -27,9 +27,9 @@
       <el-table-column label="12月" align="center" prop="mon1" width="50" />
       <el-table-column label="2020" align="center" prop="year1" width="52" />
       <el-table-column label="2019" align="center" prop="year2" width="52" />
-      <el-table-column label="市值(亿)" align="center" prop="sk_ltsz" width="66" />
+      <el-table-column label="市值" align="center" prop="sk_ltsz" width="62" />
       <el-table-column label="评分" align="center" prop="sk_score" width="50" />
-      <el-table-column fixed="right" label="操作" width="100">
+      <el-table-column fixed="right" label="操作" width="86">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
           <el-button type="text" size="small" @click="delSkWatchFunc(scope.row)">移除</el-button>
@@ -66,7 +66,7 @@ export default {
           title: 'Success',
           message: 'Deleted Successfully',
           type: 'success',
-          duration: 6000
+          duration: 3000
         })
         this.fetchData()
       })
