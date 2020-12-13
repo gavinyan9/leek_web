@@ -10,28 +10,28 @@ const idcRouter = {
   children: [{
     path: 'pf_day',
     name: '日收益率',
-    component: () => import('@/views/idc/pf_day'),
+    component: () => import('@/views/idc/idc_profit_day'),
     meta: { title: '日收益率', icon: 'chart' }
   }, {
     path: 'pf_mon',
     name: '月收益率',
-    component: () => import('@/views/idc/pf_mon'),
+    component: () => import('@/views/idc/idc_profit_mon'),
     meta: { title: '月收益率', icon: 'chart' }
   }, {
     path: 'pf_year',
     name: '年收益率',
-    component: () => import('@/views/idc/pf_year'),
+    component: () => import('@/views/idc/idc_profit_year'),
     meta: { title: '年收益率', icon: 'chart' }
-  }, {
-    path: 'watch',
-    name: '价值分析',
-    component: () => import('@/views/idc/idc_watch'),
-    meta: { title: '价值分析', icon: 'eye-open' }
   }, {
     path: 'company',
     name: '上市公司',
     component: () => import('@/views/idc/idc_company'),
     meta: { title: '上市公司', icon: 'chart' }
+  }, {
+    path: 'watch',
+    name: '价值分析',
+    component: () => import('@/views/idc/idc_watch'),
+    meta: { title: '价值分析', icon: 'eye-open' }
   }]
 }
 

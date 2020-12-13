@@ -30,6 +30,9 @@
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
+      <el-button class="filter-item" style="margin-left: 8px;" type="primary" @click="handleCreate">
+        Add
+      </el-button>
     </div>
     <el-table
       v-loading="listLoading"
@@ -66,11 +69,47 @@
       :limit.sync="listQuery.limit"
       @pagination="fetchData"
     />
+
+    <el-dialog title="Create" :visible.sync="dialogFormVisible">
+      <el-form
+        ref="dataForm"
+        :model="dataForm"
+        label-position="left"
+        label-width="70px"
+        style="width: 400px; margin-left:50px;"
+      >
+        <el-form-item label="代码" prop="sk_code">
+          <el-input v-model="dataForm.sk_code" />
+        </el-form-item>
+        <el-form-item label="名称" prop="sk_name">
+          <el-input v-model="dataForm.sk_name" />
+        </el-form-item>
+        <el-form-item label="板块" prop="bk_code">
+          <el-input v-model="dataForm.bk_code" />
+        </el-form-item>
+        <el-form-item label="板名" prop="bk_name">
+          <el-input v-model="dataForm.bk_name" />
+        </el-form-item>
+        <el-form-item label="remark" prop="bk_remark">
+          <el-input v-model="dataForm.bk_remark" />
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">
+          Cancel
+        </el-button>
+        <el-button type="primary" @click="createData">
+          Confirm
+        </el-button>
+      </div>
+    </el-dialog>
+
   </div>
+
 </template>
 
 <script>
-import { companyPages, delCompany } from '@/api/idc'
+import { addCompany, companyPages, delCompany } from '@/api/idc'
 import { getBkList } from '@/api/stock'
 
 import Pagination from '@/components/Pagination'
@@ -92,10 +131,20 @@ export default {
         bk_remark: '',
         sort: 'skLtsz'
       },
+      dataForm: {
+        sk_code: '',
+        sk_name: '',
+        bk_code: '',
+        bk_name: '',
+        bk_remark: ''
+      },
       bkList: [{
         bk_code: '全部',
         bk_name: ''
-      }]
+      }],
+      dialogFormVisible: false,
+      dialogStatus: '',
+      dialogPvVisible: false
     }
   },
   created() {
@@ -106,6 +155,18 @@ export default {
     getBkListFunc() {
       getBkList().then(response => {
         this.bkList = response.data
+      })
+    },
+    createData() {
+      addCompany(this.dataForm).then(() => {
+        this.dialogFormVisible = false
+        this.$notify({
+          title: 'Success',
+          message: 'Created Successfully',
+          type: 'success',
+          duration: 3000
+        })
+        this.fetchData()
       })
     },
     handleFilter() {
@@ -126,6 +187,10 @@ export default {
         })
         this.fetchData()
       })
+    },
+    handleCreate() {
+      this.dialogStatus = 'create'
+      this.dialogFormVisible = true
     },
     goDetail(row) {
       window.open('http://stockpage.10jqka.com.cn/' + row.skCode)

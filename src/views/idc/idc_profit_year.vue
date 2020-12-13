@@ -13,6 +13,14 @@
         style="width: 120px;margin-left:3px;"
         @keyup.enter.native="handleFilter"
       />
+      <el-select v-model="listQuery.gjfw" placeholder="股价范围" style="width: 120px;margin-left:3px;">
+        <el-option
+          v-for="item in jgfwList"
+          :key="item.value"
+          :label="item.key"
+          :value="item.value"
+        />
+      </el-select>
       <el-select v-model="listQuery.bkCode" placeholder="板块名称" style="width: 120px;margin-left:3px;">
         <el-option
           v-for="item in bkList"
@@ -32,32 +40,30 @@
       border
       fit
       highlight-current-row
+      @sort-change="changeSort"
     >
-      <el-table-column align="center" label="序号" width="46">
+      <el-table-column align="center" label="序号" width="50">
         <template slot-scope="scope">
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
-      <el-table-column align="center" label="代码" prop="skCode" width="66" />
+      <el-table-column align="center" label="代码" prop="skCode" width="68" />
       <el-table-column label="名称" prop="skName" width="70" />
       <el-table-column label="板块" width="70" prop="bkName" />
+      <el-table-column label="二级板块" prop="bkRemark" width="96" />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
-      <el-table-column label="月度" align="center" width="50" prop="day30" />
-      <el-table-column label="1D" align="center" width="50" prop="day1" />
-      <el-table-column label="2D" align="center" width="50" prop="day2" />
-      <el-table-column label="3D" align="center" width="50" prop="day3" />
-      <el-table-column label="4D" align="center" width="50" prop="day4" />
-      <el-table-column label="5D" align="center" width="50" prop="day5" />
-      <el-table-column label="6D" align="center" width="50" prop="day6" />
-      <el-table-column label="7D" align="center" width="50" prop="day7" />
-      <el-table-column label="8D" align="center" width="50" prop="day8" />
+      <el-table-column label="30D" align="center" width="50" prop="monLast30" />
+      <el-table-column label="2020" align="center" width="72" prop="year1" sortable />
+      <el-table-column label="2019" align="center" width="52" prop="year2" />
+      <el-table-column label="2018" align="center" width="52" prop="year3" />
+      <el-table-column label="2017" align="center" width="52" prop="year4" />
+      <el-table-column label="市值" align="center" width="50" prop="skLtsz" />
       <el-table-column label="评分" align="center" width="50" prop="skScore" />
-      <el-table-column label="年化" align="center" width="50" prop="year1" />
-      <el-table-column fixed="right" label="操作" width="90">
+      <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
           <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
+          <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -74,13 +80,12 @@
 </template>
 
 <script>
-import { addSkWatch } from '@/api/idc'
-import { getPfDayPages } from '@/api/profit'
+import { addSkWatch, getProfitList, delCompany } from '@/api/idc'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
-  name: 'IdcProfit',
+  name: 'IdcPfYear',
   components: { Pagination },
   data() {
     return {
@@ -97,9 +102,38 @@ export default {
         sort: 'sk_score'
       },
       bkList: [{
-        bk_code: '板块',
+        bk_code: '全部',
         bk_name: ''
-      }]
+      }],
+      jgfwList: [{
+        key: '全部',
+        value: ''
+      }, {
+        key: '10以下',
+        value: '10'
+      }, {
+        key: '10-20',
+        value: '20'
+      }, {
+        key: '20-30',
+        value: '30'
+      }, {
+        key: '30-50',
+        value: '50'
+      }, {
+        key: '50-100',
+        value: '100'
+      }, {
+        key: '100-200',
+        value: '200'
+      }, {
+        key: '200以上',
+        value: '300'
+      }],
+      formData: {
+        sk_code: '',
+        sk_bk: ''
+      }
     }
   },
   created() {
@@ -112,30 +146,45 @@ export default {
         this.bkList = response.data
       })
     },
-    handleFilter() {
-      this.listQuery.page = 1
-      this.fetchData()
-    },
-    goDetail(row) {
-      window.open('http://stockpage.10jqka.com.cn/' + row.skCode)
-    },
-    fetchData() {
-      this.listLoading = false
-      getPfDayPages(this.listQuery).then(response => {
-        this.list = response.data.result
-        this.total = response.data.total
-        this.listLoading = false
-      })
-    },
     addSkWatchFunc(row) {
       addSkWatch({ sk_code: row.skCode }).then(() => {
         this.$notify({
           title: 'Success',
           message: '收藏 Successfully',
           type: 'success',
-          duration: 1000
+          duration: 2000
         })
         this.fetchData()
+      })
+    },
+    changeSort(val) {
+      this.listQuery.sort = val.prop
+      this.fetchData()
+    },
+    handleFilter() {
+      this.listQuery.page = 1
+      this.fetchData()
+    },
+    delCompanyFunc(row) {
+      delCompany({ sk_code: row.skCode }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'Deleted Successfully',
+          type: 'success',
+          duration: 2000
+        })
+        this.fetchData()
+      })
+    },
+    goDetail(row) {
+      window.open('http://stockpage.10jqka.com.cn/' + row.skCode)
+    },
+    fetchData() {
+      this.listLoading = false
+      getProfitList(this.listQuery).then(response => {
+        this.list = response.data.result
+        this.total = response.data.total
+        this.listLoading = false
       })
     }
   }

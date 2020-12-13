@@ -18,6 +18,15 @@ export function delCompany(params) {
   })
 }
 
+// 添加上市公司
+export function addCompany(params) {
+  return request({
+    url: '/apis/comp/add',
+    method: 'get',
+    params
+  })
+}
+
 // 查询股票年化收益列表
 export function getProfitList(params) {
   return request({

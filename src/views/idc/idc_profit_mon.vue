@@ -42,30 +42,28 @@
       highlight-current-row
       @sort-change="changeSort"
     >
-      <el-table-column align="center" label="序号" width="50">
+      <el-table-column align="center" label="序号" width="46">
         <template slot-scope="scope">
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
-      <el-table-column align="center" label="代码" prop="skCode" width="68" />
+      <el-table-column align="center" label="代码" prop="skCode" width="66" />
       <el-table-column label="名称" prop="skName" width="70" />
-      <el-table-column label="板块" width="70" prop="bkName" />
-      <el-table-column label="二级板块" prop="bkRemark" width="96" />
+      <el-table-column label="板块" width="80" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="90D" align="center" width="50" prop="monLast90" />
-      <el-table-column label="60D" align="center" width="50" prop="monLast60" />
-      <el-table-column label="30D" align="center" width="50" prop="monLast30" />
-      <el-table-column label="2020" align="center" width="52" prop="year1" />
-      <el-table-column label="2019" align="center" width="52" prop="year2" />
-      <el-table-column label="2018" align="center" width="52" prop="year3" />
-      <el-table-column label="2017" align="center" width="52" prop="year4" />
-      <el-table-column label="市值" align="center" width="50" prop="skLtsz" />
+      <el-table-column label="市值(亿)" align="center" width="66" prop="skLtsz" />
+      <el-table-column label="年化" align="center" width="52" prop="year1" />
+      <el-table-column label="12" align="center" width="60" prop="mon1" sortable />
+      <el-table-column label="11月" align="center" width="50" prop="mon2" />
+      <el-table-column label="10月" align="center" width="50" prop="mon3" />
+      <el-table-column label="9月" align="center" width="50" prop="mon4" />
+      <el-table-column label="8月" align="center" width="50" prop="mon5" />
+      <el-table-column label="7月" align="center" width="50" prop="mon6" />
       <el-table-column label="评分" align="center" width="50" prop="skScore" />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
           <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
-          <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -82,12 +80,13 @@
 </template>
 
 <script>
-import { addSkWatch, getProfitList, delCompany } from '@/api/idc'
+import { addSkWatch } from '@/api/idc'
+import { getPfMonPages } from '@/api/profit'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
-  name: 'IdcPfYear',
+  name: 'IdcProfit',
   components: { Pagination },
   data() {
     return {
@@ -167,23 +166,12 @@ export default {
       this.listQuery.page = 1
       this.fetchData()
     },
-    delCompanyFunc(row) {
-      delCompany({ sk_code: row.skCode }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'Deleted Successfully',
-          type: 'success',
-          duration: 2000
-        })
-        this.fetchData()
-      })
-    },
     goDetail(row) {
       window.open('http://stockpage.10jqka.com.cn/' + row.skCode)
     },
     fetchData() {
       this.listLoading = false
-      getProfitList(this.listQuery).then(response => {
+      getPfMonPages(this.listQuery).then(response => {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false
