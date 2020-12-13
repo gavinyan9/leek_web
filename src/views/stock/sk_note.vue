@@ -28,7 +28,6 @@
         </template>
       </el-table-column>
       <el-table-column align="center" prop="createdAt" label="created_at" width="96" />
-      <el-table-column prop="income" label="income" width="78" />
       <el-table-column label="notes" prop="notes" />
       <el-table-column fixed="right" label="操作" width="50">
         <template slot-scope="scope">
@@ -52,9 +51,6 @@
         label-width="70px"
         style="width: 400px; margin-left:50px;"
       >
-        <el-form-item label="income">
-          <el-input-number v-model="formData.income" label="income" />
-        </el-form-item>
         <el-form-item label="Notes">
           <el-input v-model="formData.notes" type="textarea" placeholder="Please input" :rows="6" />
         </el-form-item>

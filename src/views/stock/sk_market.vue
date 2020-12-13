@@ -37,9 +37,8 @@
       <el-table-column label="板块" prop="bk_name" width="78" />
       <el-table-column label="现价" width="68" prop="sk_xj" />
       <el-table-column label="市值" align="center" width="62" prop="sk_ltsz" />
+      <el-table-column label="成交额" align="center" width="86" prop="sk_cje" sortable />
       <el-table-column label="1D" align="center" width="62" prop="sk_zdf" sortable />
-      <el-table-column label="2D" align="center" width="50" prop="day2" />
-      <el-table-column label="3D" align="center" width="50" prop="day3" />
       <el-table-column label="月" align="center" width="50" prop="mon1" />
       <el-table-column label="年" align="center" width="60" prop="year1" />
       <el-table-column label="评分" align="center" width="50" prop="sk_score" />
@@ -47,7 +46,7 @@
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="addCollectFunc(scope.row)">收藏</el-button>
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="thumbsUpHandler(scope.row)">赞</el-button>
+          <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -62,7 +61,8 @@
 </template>
 
 <script>
-import { addCollect, getBkList, getMarketList, thumbsUp } from '@/api/stock'
+import { getBkList, getMarketList } from '@/api/stock'
+import { addSkWatch, delCompany } from '@/api/idc'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -101,6 +101,28 @@ export default {
         this.bkList = response.data
       })
     },
+    addSkWatchFunc(row) {
+      addSkWatch({ sk_code: row.sk_code }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: '收藏 Successfully',
+          type: 'success',
+          duration: 2000
+        })
+        this.fetchData()
+      })
+    },
+    delCompanyFunc(row) {
+      delCompany({ sk_code: row.sk_code }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'Deleted Successfully',
+          type: 'success',
+          duration: 2000
+        })
+        this.fetchData()
+      })
+    },
     changeSort(val) {
       this.listQuery.sort = val.prop
       this.fetchData()
@@ -112,34 +134,12 @@ export default {
     goDetail(row) {
       window.open('http://stockpage.10jqka.com.cn/' + row.sk_code)
     },
-    addCollectFunc(row) {
-      addCollect(row).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'Collect Successfully',
-          type: 'success',
-          duration: 3000
-        })
-        this.fetchData()
-      })
-    },
     fetchData() {
       this.listLoading = false
       getMarketList(this.listQuery).then(response => {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false
-      })
-    },
-    thumbsUpHandler(row) {
-      thumbsUp(row).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'thumbs-up Successfully',
-          type: 'success',
-          duration: 3000
-        })
-        this.fetchData()
       })
     }
   }

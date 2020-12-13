@@ -21,7 +21,7 @@ const stockRouter = {
     path: 'note',
     name: 'Notes',
     component: () => import('@/views/stock/sk_note'),
-    meta: { title: 'Notes', icon: 'form', affix: true }
+    meta: { title: 'Notes', icon: 'form' }
     /*    },{
           path: 'income',
           name: 'Income',
