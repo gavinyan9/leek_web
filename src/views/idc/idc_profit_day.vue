@@ -52,8 +52,8 @@
       <el-table-column label="5D" align="center" width="50" prop="day5" />
       <el-table-column label="6D" align="center" width="50" prop="day6" />
       <el-table-column label="7D" align="center" width="50" prop="day7" />
-      <el-table-column label="评分" align="center" width="50" prop="skScore" />
-      <el-table-column label="年化" align="center" width="50" prop="year1" />
+      <el-table-column label="评分" align="center" width="46" prop="skScore" />
+      <el-table-column label="年化" align="center" width="52" prop="year1" />
       <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>

@@ -52,13 +52,14 @@
       <el-table-column label="板块" width="70" prop="bkName" />
       <el-table-column label="二级板块" prop="bkRemark" width="96" />
       <el-table-column label="现价" width="60" prop="skXj" />
+      <el-table-column label="涨跌" width="50" prop="skZdf" />
       <el-table-column label="30D" align="center" width="50" prop="monLast30" />
       <el-table-column label="2020" align="center" width="72" prop="year1" sortable />
       <el-table-column label="2019" align="center" width="52" prop="year2" />
       <el-table-column label="2018" align="center" width="52" prop="year3" />
       <el-table-column label="2017" align="center" width="52" prop="year4" />
-      <el-table-column label="市值" align="center" width="50" prop="skLtsz" />
-      <el-table-column label="评分" align="center" width="50" prop="skScore" />
+      <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
+      <el-table-column label="评分" align="center" width="46" prop="skScore" />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
