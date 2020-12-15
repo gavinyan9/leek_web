@@ -11,6 +11,7 @@ import componentsRouter from './modules/components'
 import habitRouter from './modules/habit'
 import stockRouter from './modules/stock'
 import idcRouter from './modules/idc'
+import reportRouter from './modules/report'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -106,6 +107,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
   idcRouter,
   stockRouter,
+  reportRouter,
   habitRouter,
   {
     path: '/permission',
