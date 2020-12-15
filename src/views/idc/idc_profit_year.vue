@@ -81,12 +81,12 @@
 </template>
 
 <script>
-import { addSkWatch, getProfitList, delCompany } from '@/api/idc'
+import { addSkWatch, delCompany, getProfitList } from '@/api/idc'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
-  name: 'IdcPfYear',
+  name: 'IdcProfitYear',
   components: { Pagination },
   data() {
     return {

@@ -65,6 +65,7 @@
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
           <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
+          <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -81,13 +82,13 @@
 </template>
 
 <script>
-import { addSkWatch } from '@/api/idc'
+import { addSkWatch, delCompany } from '@/api/idc'
 import { getPfMonPages } from '@/api/profit'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
-  name: 'IdcProfit',
+  name: 'IdcProfitMon',
   components: { Pagination },
   data() {
     return {
@@ -166,6 +167,17 @@ export default {
     handleFilter() {
       this.listQuery.page = 1
       this.fetchData()
+    },
+    delCompanyFunc(row) {
+      delCompany({ sk_code: row.skCode }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'Deleted Successfully',
+          type: 'success',
+          duration: 2000
+        })
+        this.fetchData()
+      })
     },
     goDetail(row) {
       window.open('http://stockpage.10jqka.com.cn/' + row.skCode)

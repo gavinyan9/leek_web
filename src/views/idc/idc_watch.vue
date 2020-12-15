@@ -43,7 +43,7 @@
 import { delSkWatch, skWatchList } from '@/api/stock'
 
 export default {
-  name: 'SkWatch',
+  name: 'IdcWatch',
   data() {
     return {
       list: null,

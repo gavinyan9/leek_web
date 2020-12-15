@@ -17,3 +17,12 @@ export function getPfDayPages(params) {
     params
   })
 }
+
+// 实时同步股票价格
+export function syncDayGj(params) {
+  return request({
+    url: '/apis/pf_day/sync',
+    method: 'get',
+    params
+  })
+}

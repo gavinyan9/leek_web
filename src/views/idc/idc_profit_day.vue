@@ -24,6 +24,9 @@
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
+      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncDayGjFunc">
+        同步
+      </el-button>
     </div>
     <el-table
       v-loading="listLoading"
@@ -75,12 +78,12 @@
 
 <script>
 import { addSkWatch } from '@/api/idc'
-import { getPfDayPages } from '@/api/profit'
+import { getPfDayPages, syncDayGj } from '@/api/profit'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
-  name: 'IdcProfit',
+  name: 'IdcProfitDay',
   components: { Pagination },
   data() {
     return {
@@ -129,6 +132,17 @@ export default {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false
+      })
+    },
+    syncDayGjFunc() {
+      syncDayGj().then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'sync Successfully',
+          type: 'success',
+          duration: 1000
+        })
+        this.fetchData()
       })
     },
     addSkWatchFunc(row) {
