@@ -50,7 +50,7 @@
       <el-table-column align="center" label="代码" prop="skCode" width="68" />
       <el-table-column label="名称" prop="skName" width="70" />
       <el-table-column label="板块" width="70" prop="bkName" />
-      <el-table-column label="二级板块" prop="bkRemark" width="96" />
+      <el-table-column label="二级板块" prop="bkRemark" width="96" sortable />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="涨跌" width="50" prop="skZdf" />
       <el-table-column label="30D" align="center" width="50" prop="monLast30" />

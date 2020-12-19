@@ -24,9 +24,6 @@
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
-      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncDayGjFunc">
-        同步
-      </el-button>
     </div>
     <el-table
       v-loading="listLoading"
@@ -47,17 +44,19 @@
       <el-table-column label="板块" width="70" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
-      <el-table-column label="年化" align="center" width="52" prop="year1" />
-      <el-table-column label="月度" align="center" width="50" prop="day30" />
+      <el-table-column label="年化" align="center" width="58" prop="year1" />
+      <el-table-column label="12月" align="center" width="52" prop="mon1" />
+      <el-table-column label="11月" align="center" width="52" prop="mon2" />
+      <el-table-column label="10月" align="center" width="52" prop="mon3" />
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />
       <el-table-column label="2D" align="center" width="52" prop="day2" />
       <el-table-column label="3D" align="center" width="52" prop="day3" />
       <el-table-column label="4D" align="center" width="52" prop="day4" />
       <el-table-column label="5D" align="center" width="52" prop="day5" />
-      <el-table-column label="评分" align="center" width="46" prop="skScore" />
-      <el-table-column fixed="right" label="操作" width="90">
+      <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
+          <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
           <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
         </template>
       </el-table-column>
@@ -75,8 +74,8 @@
 </template>
 
 <script>
-import { addSkWatch } from '@/api/idc'
-import { getPfDayPages, syncDayGj } from '@/api/profit'
+import { addSkWatch, delCompany } from '@/api/idc'
+import { getPfTotalPages } from '@/api/profit'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
@@ -121,26 +120,26 @@ export default {
       this.listQuery.sort = val.prop
       this.fetchData()
     },
+    delCompanyFunc(row) {
+      delCompany({ sk_code: row.skCode }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'Deleted Successfully',
+          type: 'success',
+          duration: 2000
+        })
+        this.fetchData()
+      })
+    },
     goDetail(row) {
       window.open('http://stockpage.10jqka.com.cn/' + row.skCode)
     },
     fetchData() {
       this.listLoading = false
-      getPfDayPages(this.listQuery).then(response => {
+      getPfTotalPages(this.listQuery).then(response => {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false
-      })
-    },
-    syncDayGjFunc() {
-      syncDayGj().then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'sync Successfully',
-          type: 'success',
-          duration: 1000
-        })
-        this.fetchData()
       })
     },
     addSkWatchFunc(row) {

@@ -9,7 +9,7 @@
           <div class="card-panel-text">
             Stocks
           </div>
-          <count-to :start-val="0" :end-val="2896" :duration="1200" class="card-panel-num" />
+          <count-to :start-val="0" :end-val="696" :duration="1200" class="card-panel-num" />
         </div>
       </div>
     </el-col>
