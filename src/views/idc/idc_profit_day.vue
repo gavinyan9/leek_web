@@ -47,8 +47,8 @@
       <el-table-column label="板块" width="70" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
-      <el-table-column label="年化" align="center" width="52" prop="year1" />
-      <el-table-column label="月度" align="center" width="50" prop="day30" />
+      <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
+      <el-table-column label="月度" align="center" width="70" prop="mon1" sortable />
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />
       <el-table-column label="2D" align="center" width="52" prop="day2" />
       <el-table-column label="3D" align="center" width="52" prop="day3" />
@@ -90,7 +90,7 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 30,
+        limit: 20,
         sk_code: '',
         sk_name: '',
         gjfw: '',

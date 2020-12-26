@@ -28,9 +28,9 @@ export function addCompany(params) {
 }
 
 // 查询股票年化收益列表
-export function getProfitList(params) {
+export function profitYearPages(params) {
   return request({
-    url: '/apis/sk_profit/list',
+    url: '/apis/pf_year/pages',
     method: 'get',
     params
   })

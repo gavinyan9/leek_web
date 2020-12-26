@@ -53,7 +53,7 @@
       <el-table-column label="二级板块" prop="bkRemark" width="96" sortable />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="涨跌" width="50" prop="skZdf" />
-      <el-table-column label="30D" align="center" width="50" prop="monLast30" />
+      <el-table-column label="月度" align="center" width="52" prop="mon1" />
       <el-table-column label="2020" align="center" width="72" prop="year1" sortable />
       <el-table-column label="2019" align="center" width="52" prop="year2" />
       <el-table-column label="2018" align="center" width="52" prop="year3" />
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { addSkWatch, delCompany, getProfitList } from '@/api/idc'
+import { addSkWatch, delCompany, profitYearPages } from '@/api/idc'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
@@ -95,7 +95,7 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 30,
+        limit: 20,
         sk_code: '',
         sk_name: '',
         gjfw: '',
@@ -182,7 +182,7 @@ export default {
     },
     fetchData() {
       this.listLoading = false
-      getProfitList(this.listQuery).then(response => {
+      profitYearPages(this.listQuery).then(response => {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false
