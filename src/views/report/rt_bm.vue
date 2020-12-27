@@ -92,9 +92,10 @@ export default {
         sort: 'sk_score'
       },
       bkList: [
-        { gn_code: '板块', gn_name: '' },
+        { gn_code: '', gn_name: '板块' },
         { gn_code: 'G001', gn_name: '锂电池' },
-        { gn_code: 'G002', gn_name: '光伏' }
+        { gn_code: 'G002', gn_name: '光伏' },
+        { gn_code: 'G003', gn_name: '高端制造' }
       ]
     }
   },
