@@ -99,7 +99,7 @@ export default {
 
             label: {
               backgroundColor: '#fff',
-              position: 'left',
+              position: 'right',
               verticalAlign: 'middle',
               align: 'right'
             },
