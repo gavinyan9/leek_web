@@ -28,6 +28,11 @@ const reportRouter = {
     component: () => import('@/views/report/rt_nj'),
     meta: { title: '酿酒', icon: 'chart' }
   }, {
+    path: 'rt_bm',
+    name: '白马股',
+    component: () => import('@/views/report/rt_bm'),
+    meta: { title: '白马股', icon: 'chart' }
+  }, {
     path: 'rt_bk_zdf',
     name: '板块涨跌',
     component: () => import('@/views/report/rt_bk_zdf'),

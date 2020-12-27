@@ -27,7 +27,7 @@
 import { getBkZdfInfo } from '@/api/report'
 
 export default {
-  name: 'SkWatch',
+  name: 'RtBkZdf',
   data() {
     return {
       list: null,

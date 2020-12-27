@@ -9,7 +9,7 @@ import echarts from 'echarts'
 require('echarts/theme/macarons')
 
 export default {
-  name: 'RtIncome',
+  name: 'RtDxf',
 
   mounted() {
     this.loadData()

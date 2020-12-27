@@ -9,14 +9,13 @@ import echarts from 'echarts'
 require('echarts/theme/macarons')
 
 export default {
-  name: 'RtIncome',
+  name: 'RtNj',
 
   mounted() {
     this.loadData()
   },
   methods: {
     loadData() {
-      // 收益信息月报-start
       const income_mon = echarts.init(document.getElementById('income_mon'), 'macarons')
       const data1 = {
         'name': '酿酒行业',
