@@ -13,6 +13,11 @@ const reportRouter = {
     component: () => import('@/views/report/rt_ny'),
     meta: { title: '新能源', icon: 'chart' }
   }, {
+    path: 'rt_gdz',
+    name: '高端制造',
+    component: () => import('@/views/report/rt_gdz'),
+    meta: { title: '高端制造', icon: 'chart' }
+  }, {
     path: 'rt_yy',
     name: '医药医疗',
     component: () => import('@/views/report/rt_yy'),
@@ -23,15 +28,15 @@ const reportRouter = {
     component: () => import('@/views/report/rt_dxf'),
     meta: { title: '大消费', icon: 'chart' }
   }, {
-    path: 'rt_nj',
-    name: '酿酒',
-    component: () => import('@/views/report/rt_nj'),
-    meta: { title: '酿酒', icon: 'chart' }
-  }, {
     path: 'rt_bm',
     name: '白马股',
     component: () => import('@/views/report/rt_bm'),
     meta: { title: '白马股', icon: 'chart' }
+  }, {
+    path: 'rt_nj',
+    name: '酿酒',
+    component: () => import('@/views/report/rt_nj'),
+    meta: { title: '酿酒', icon: 'chart' }
   }, {
     path: 'rt_bk_zdf',
     name: '板块涨跌',

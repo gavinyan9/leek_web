@@ -95,7 +95,9 @@ export default {
         { gn_code: '', gn_name: '板块' },
         { gn_code: 'G001', gn_name: '锂电池' },
         { gn_code: 'G002', gn_name: '光伏' },
-        { gn_code: 'G003', gn_name: '高端制造' }
+        { gn_code: 'G003', gn_name: '高端制造' },
+        { gn_code: 'G006', gn_name: '医药' },
+        { gn_code: 'G008', gn_name: '大消费' }
       ]
     }
   },
