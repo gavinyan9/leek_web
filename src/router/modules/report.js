@@ -8,35 +8,30 @@ const reportRouter = {
   component: Layout,
   meta: { title: 'Report', icon: 'chart' },
   children: [{
+    path: 'rt_ny',
+    name: '新能源',
+    component: () => import('@/views/report/rt_ny'),
+    meta: { title: '新能源', icon: 'chart' }
+  }, {
+    path: 'rt_yy',
+    name: '医药医疗',
+    component: () => import('@/views/report/rt_yy'),
+    meta: { title: '医药医疗', icon: 'chart' }
+  }, {
+    path: 'rt_dxf',
+    name: '大消费',
+    component: () => import('@/views/report/rt_dxf'),
+    meta: { title: '大消费', icon: 'chart' }
+  }, {
+    path: 'rt_nj',
+    name: '酿酒',
+    component: () => import('@/views/report/rt_nj'),
+    meta: { title: '酿酒', icon: 'chart' }
+  }, {
     path: 'rt_bk_zdf',
     name: '板块涨跌',
     component: () => import('@/views/report/rt_bk_zdf'),
     meta: { title: '板块涨跌', icon: 'chart' }
-  }, {
-    path: 'rt_ny',
-    name: '新能源行业细分',
-    component: () => import('@/views/report/rt_ny'),
-    meta: { title: '新能源行业细分', icon: 'chart' }
-  }, {
-    path: 'rt_dxf',
-    name: '大消费细分',
-    component: () => import('@/views/report/rt_dxf'),
-    meta: { title: '大消费细分', icon: 'chart' }
-  }, {
-    path: 'rt_yy',
-    name: '医药医疗细分',
-    component: () => import('@/views/report/rt_yy'),
-    meta: { title: '医药医疗细分', icon: 'chart' }
-  }, {
-    path: 'rt_nj',
-    name: '酿酒行业细分',
-    component: () => import('@/views/report/rt_nj'),
-    meta: { title: '酿酒行业细分', icon: 'chart' }
-  }, {
-    path: 'rt_100',
-    name: '年化风云榜',
-    component: () => import('@/views/idc/idc_profit_total'),
-    meta: { title: '年化风云榜', icon: 'chart' }
   }]
 }
 export default reportRouter
