@@ -7,7 +7,6 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 /* Router Modules */
-import componentsRouter from './modules/components'
 import habitRouter from './modules/habit'
 import stockRouter from './modules/stock'
 import idcRouter from './modules/idc'
@@ -162,9 +161,6 @@ export const asyncRoutes = [
       }
     ]
   },
-
-  componentsRouter,
-
   {
     path: '/excel',
     component: Layout,
