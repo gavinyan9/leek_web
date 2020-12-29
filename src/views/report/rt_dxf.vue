@@ -20,52 +20,28 @@ export default {
       const data1 = {
         'name': '大消费',
         'children': [{
-          'name': '酿酒',
-          'children': [{
-            'name': '白酒',
-            'children': [
-              { 'name': '山西汾酒', 'value': '' }
-            ]
-          }]
-        }, {
-          'name': '调味品',
-          'children': [{
-            'name': '酱油',
-            'children': [
-              { 'name': '海天味业', 'value': '' }
-            ]
-          }, {
-            'name': '食用醋',
-            'children': [
-              { 'name': '恒顺醋业', 'value': '' }
-            ]
-          }]
-        }, {
-          'name': '乳制品',
-          'children': [{
-            'name': '奶酪',
-            'children': [
-              { 'name': '妙可蓝多', 'value': '' }
-            ]
-          }, {
-            'name': '牛奶',
-            'children': [
-              { 'name': '伊利股份', 'value': '' }
-            ]
-          }]
-        }, {
-          'name': '零食',
-          'children': [{ 'name': '良品铺子', 'value': '' }, { 'name': '三只松鼠', 'value': '' }
+          'name': '食品',
+          'children': [
+            { 'name': '山西汾酒', 'value': '600809', 'children': [{ 'name': '白酒第一梯队最靓的仔' }] },
+            { 'name': '安井食品', 'value': '603345', 'children': [{ 'name': '速冻火锅料龙头' }] },
+            { 'name': '良品铺子', 'value': '603719', 'children': [{ 'name': '国内休闲零食龙头' }] },
+            { 'name': '妙可蓝多', 'value': '600882', 'children': [{ 'name': '国内奶酪龙头' }] },
+            { 'name': '伊利股份', 'value': '600887', 'children': [{ 'name': '国内乳业龙头' }] },
+            { 'name': '海天味业', 'value': '603288', 'children': [{ 'name': '国内酱油行业龙头' }] },
+            { 'name': '恒顺醋业', 'value': '600305', 'children': [{ 'name': '国内食醋龙头' }] }
           ]
         }, {
-          'name': '速冻食品',
-          'children': [{ 'name': '安井食品', 'value': '' },
-            { 'name': '三全食品', 'value': '' }
+          'name': '日用品',
+          'children': [
+            { 'name': '小熊电器', 'value': '002959', 'children': [{ 'name': '国内小电器龙头' }] },
+            { 'name': '中顺洁柔', 'value': '002511', 'children': [{ 'name': '国内生活用纸龙头' }] },
+            { 'name': '晨光文具', 'value': '603899', 'children': [{ 'name': '国内文具龙头' }] }
           ]
         }, {
-          'name': '小电器',
-          'children': [{ 'name': '小熊电器', 'value': '' }
-
+          'name': '非必需品',
+          'children': [
+            { 'name': '中国中免', 'value': '601888', 'children': [{ 'name': '国内免税龙头' }] },
+            { 'name': '锦江酒店', 'value': '600754', 'children': [{ 'name': '国内酒店业务龙头' }] }
           ]
         }]
       }
