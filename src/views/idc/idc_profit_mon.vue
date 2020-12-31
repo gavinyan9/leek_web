@@ -53,12 +53,12 @@
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="涨跌" width="50" prop="skZdf" />
       <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
-      <el-table-column label="12" align="center" width="60" prop="mon1" sortable />
-      <el-table-column label="11月" align="center" width="50" prop="mon2" />
-      <el-table-column label="10月" align="center" width="50" prop="mon3" />
-      <el-table-column label="9月" align="center" width="50" prop="mon4" />
-      <el-table-column label="8月" align="center" width="50" prop="mon5" />
-      <el-table-column label="7月" align="center" width="50" prop="mon6" />
+      <el-table-column label="1月" align="center" width="66" prop="mon1" sortable />
+      <el-table-column label="12月" align="center" width="50" prop="mon2" />
+      <el-table-column label="11月" align="center" width="50" prop="mon3" />
+      <el-table-column label="10月" align="center" width="50" prop="mon4" />
+      <el-table-column label="9月" align="center" width="50" prop="mon5" />
+      <el-table-column label="8月" align="center" width="50" prop="mon6" />
       <el-table-column label="市值" align="center" width="62" prop="skLtsz" />
       <el-table-column label="评分" align="center" width="50" prop="skScore" />
       <el-table-column fixed="right" label="操作" width="120">

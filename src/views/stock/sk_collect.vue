@@ -23,6 +23,7 @@
       </el-table-column>
       <el-table-column align="center" prop="sk_code" label="代码" width="68" />
       <el-table-column label="名称" prop="sk_name" width="80" />
+      <el-table-column label="板块" prop="gn_name" width="80" />
       <el-table-column label="现价" prop="sk_xj" width="80" />
       <el-table-column label="涨跌幅" align="center" prop="sk_zdf" width="66" />
       <el-table-column label="持股量" prop="sk_hold" width="66" />
