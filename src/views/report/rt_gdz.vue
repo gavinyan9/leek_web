@@ -32,6 +32,8 @@ export default {
               { 'name': '恒立液压', 'value': '', 'children': [{ 'name': '液压行业龙头' }] },
               { 'name': '三一重工', 'value': '', 'children': [{ 'name': '工程机械行业龙头' }] },
               { 'name': '艾迪精密', 'value': '', 'children': [{ 'name': '工程机械领域破碎锤龙头' }] },
+              { 'name': '捷昌驱动', 'value': '603583', 'children': [{ 'name': '国内线性驱动系统龙头企业' }] },
+              { 'name': '东方电缆', 'value': '603606', 'children': [{ 'name': '国内海缆龙头' }] },
               { 'name': '浙江鼎力', 'value': '', 'children': [{ 'name': '国内智能高空作业平台高端制造龙头企业' }] }
             ]
           }, {

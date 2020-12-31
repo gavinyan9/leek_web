@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 8px">
-    <div id="income_mon" style="height: 460px;width: 100%;float: left;" />
+    <div id="income_mon" style="height: 500px;width: 100%;float: left;" />
   </div>
 </template>
 <script>
@@ -32,15 +32,32 @@ export default {
             { 'name': '恒顺醋业', 'value': '600305', 'children': [{ 'name': '国内食醋龙头' }] }
           ]
         }, {
+          'name': '家电',
+          'children': [
+            { 'name': '科沃斯', 'value': '603486', 'children': [{ 'name': '扫地机器人龙头企业' }] },
+            { 'name': '小熊电器', 'value': '002959', 'children': [{ 'name': '国内小电器龙头' }] }
+          ]
+        }, {
           'name': '日用品',
           'children': [
             { 'name': '珀莱雅', 'value': '603605', 'children': [{ 'name': '国内化妆品龙头' }] },
-            { 'name': '小熊电器', 'value': '002959', 'children': [{ 'name': '国内小电器龙头' }] },
             { 'name': '中顺洁柔', 'value': '002511', 'children': [{ 'name': '国内生活用纸龙头' }] },
             { 'name': '晨光文具', 'value': '603899', 'children': [{ 'name': '国内文具龙头' }] }
           ]
         }, {
-          'name': '非必需品',
+          'name': '汽车',
+          'children': [
+            { 'name': '长安汽车', 'value': '000625', 'children': [{ 'name': '国产最酷炫的SUV' }] },
+            { 'name': '长城汽车', 'value': '601633', 'children': [{ 'name': '自主品牌行业龙头' }] }
+          ]
+        }, {
+          'name': '摩托',
+          'children': [
+            { 'name': '春风动力', 'value': '603129' },
+            { 'name': '钱江摩托', 'value': '000913' }
+          ]
+        }, {
+          'name': '旅游',
           'children': [
             { 'name': '中国中免', 'value': '601888', 'children': [{ 'name': '国内免税龙头' }] },
             { 'name': '锦江酒店', 'value': '600754', 'children': [{ 'name': '国内酒店业务龙头' }] }
@@ -59,7 +76,7 @@ export default {
             name: 'tree1',
             data: [data1],
             top: '2%',
-            bottom: '10%',
+            bottom: '2%',
             left: '10%',
             right: '50%',
             symbolSize: 6,

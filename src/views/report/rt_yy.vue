@@ -48,13 +48,8 @@ export default {
           }, {
             'name': '医疗服务',
             'children': [
-              { 'name': '金域医学', 'value': '', 'children': [{ 'name': '提供医学检验及病理诊断外包服务' }] },
+              { 'name': '金域医学', 'value': '', 'children': [{ 'name': '三方医学检验龙头' }] },
               { 'name': '通策医疗', 'value': '', 'children': [{ 'name': '国内口腔医疗龙头股' }] }
-            ]
-          }, {
-            'name': '医美',
-            'children': [
-              { 'name': '朗姿股份', 'value': '002612', 'children': [{ 'name': '新概念人气妖股' }] }
             ]
           }, {
             'name': '医疗器械',
@@ -66,6 +61,11 @@ export default {
             'children': [
               { 'name': '大参林', 'value': '', 'children': [{ 'name': '专注于中西成药、保健品、医疗企业以及其他商品的直营连锁零售业务' }] },
               { 'name': '益丰药房', 'value': '', 'children': [{ 'name': '国内区域领先的大型医药零售连锁企业' }] }
+            ]
+          }, {
+            'name': '医美',
+            'children': [
+              { 'name': '朗姿股份', 'value': '002612', 'children': [{ 'name': '新概念人气妖股' }] }
             ]
           }
         ]

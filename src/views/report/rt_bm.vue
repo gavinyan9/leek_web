@@ -51,7 +51,8 @@
       <el-table-column label="10月" align="center" width="52" prop="mon3" />
       <el-table-column label="11月" align="center" width="52" prop="mon2" />
       <el-table-column label="12月" align="center" width="52" prop="mon1" />
-      <el-table-column label="年化" align="center" width="58" prop="year1" />
+      <el-table-column label="2020" align="center" width="58" prop="year1" />
+      <el-table-column label="2019" align="center" width="58" prop="year2" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
       <el-table-column fixed="right" label="操作" width="50">
         <template slot-scope="scope">
