@@ -36,11 +36,3 @@ export function profitYearPages(params) {
   })
 }
 
-// 将股票添加到观察区
-export function addSkWatch(params) {
-  return request({
-    url: '/apis/sk_watch/add',
-    method: 'get',
-    params
-  })
-}

@@ -42,9 +42,8 @@
       <el-table-column label="月" align="center" width="50" prop="mon1" />
       <el-table-column label="年" align="center" width="60" prop="year1" />
       <el-table-column label="评分" align="center" width="50" prop="sk_score" />
-      <el-table-column fixed="right" label="操作" width="120">
+      <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="addCollectFunc(scope.row)">收藏</el-button>
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
           <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
@@ -62,7 +61,7 @@
 
 <script>
 import { getBkList, getMarketList } from '@/api/stock'
-import { addSkWatch, delCompany } from '@/api/idc'
+import { delCompany } from '@/api/idc'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -99,17 +98,6 @@ export default {
     getBkListFunc() {
       getBkList().then(response => {
         this.bkList = response.data
-      })
-    },
-    addSkWatchFunc(row) {
-      addSkWatch({ sk_code: row.sk_code }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: '收藏 Successfully',
-          type: 'success',
-          duration: 2000
-        })
-        this.fetchData()
       })
     },
     delCompanyFunc(row) {

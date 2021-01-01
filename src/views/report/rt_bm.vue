@@ -103,7 +103,8 @@ export default {
         { gn_code: 'G008', gn_name: '大消费' },
         { gn_code: 'G012', gn_name: '汽车' },
         { gn_code: 'G020', gn_name: '软件' },
-        { gn_code: 'G010', gn_name: '半导体' }
+        { gn_code: 'G018', gn_name: '大白马' },
+        { gn_code: 'G010', gn_name: '芯片' }
 
       ]
     }

@@ -29,14 +29,9 @@ const reportRouter = {
     meta: { title: '大消费', icon: 'chart' }
   }, {
     path: 'rt_kj',
-    name: '大科技',
+    name: '科技',
     component: () => import('@/views/report/rt_kj'),
-    meta: { title: '大科技', icon: 'chart' }
-  }, {
-    path: 'rt_bm',
-    name: '白马股',
-    component: () => import('@/views/report/rt_bm'),
-    meta: { title: '白马股', icon: 'chart' }
+    meta: { title: '科技', icon: 'chart' }
   }, {
     path: 'rt_nj',
     name: '酿酒',

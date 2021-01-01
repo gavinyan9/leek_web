@@ -45,15 +45,6 @@ export function delCollect(params) {
   })
 }
 
-// 点赞
-export function thumbsUp(params) {
-  return request({
-    url: '/apis/sk_collect/thumbs-up',
-    method: 'get',
-    params
-  })
-}
-
 // 查询股票超市列表
 export function getMarketList(params) {
   return request({
@@ -78,24 +69,6 @@ export function saveNotes(data) {
     url: '/apis/sk_notes/add',
     method: 'post',
     data
-  })
-}
-
-// 查询处在观察区的股票信息
-export function skWatchList(params) {
-  return request({
-    url: '/apis/sk_watch/list',
-    method: 'get',
-    params
-  })
-}
-
-// 将股票从观察区移除
-export function delSkWatch(params) {
-  return request({
-    url: '/apis/sk_watch/del',
-    method: 'get',
-    params
   })
 }
 

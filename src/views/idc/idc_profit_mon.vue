@@ -13,15 +13,7 @@
         style="width: 120px;margin-left:3px;"
         @keyup.enter.native="handleFilter"
       />
-      <el-select v-model="listQuery.gjfw" placeholder="股价范围" style="width: 120px;margin-left:3px;">
-        <el-option
-          v-for="item in jgfwList"
-          :key="item.value"
-          :label="item.key"
-          :value="item.value"
-        />
-      </el-select>
-      <el-select v-model="listQuery.bkCode" placeholder="板块名称" style="width: 120px;margin-left:3px;">
+      <el-select v-model="listQuery.bkCode" placeholder="行业名称" style="width: 120px;margin-left:3px;">
         <el-option
           v-for="item in bkList"
           :key="item.bk_code"
@@ -49,9 +41,9 @@
       </el-table-column>
       <el-table-column align="center" label="代码" prop="skCode" width="66" />
       <el-table-column label="名称" prop="skName" width="70" />
-      <el-table-column label="板块" width="80" prop="bkName" />
+      <el-table-column label="行业" width="80" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="涨跌" width="50" prop="skZdf" />
+      <el-table-column label="涨跌" width="52" prop="skZdf" />
       <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
       <el-table-column label="1月" align="center" width="66" prop="mon1" sortable />
       <el-table-column label="12月" align="center" width="50" prop="mon2" />
@@ -61,10 +53,9 @@
       <el-table-column label="8月" align="center" width="50" prop="mon6" />
       <el-table-column label="市值" align="center" width="62" prop="skLtsz" />
       <el-table-column label="评分" align="center" width="50" prop="skScore" />
-      <el-table-column fixed="right" label="操作" width="120">
+      <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
           <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
       </el-table-column>
@@ -82,7 +73,7 @@
 </template>
 
 <script>
-import { addSkWatch, delCompany } from '@/api/idc'
+import { delCompany } from '@/api/idc'
 import { getPfMonPages } from '@/api/profit'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
@@ -97,41 +88,15 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 30,
+        limit: 20,
         sk_code: '',
         sk_name: '',
-        gjfw: '',
         bkCode: '',
         sort: 'sk_score'
       },
       bkList: [{
         bk_code: '全部',
         bk_name: ''
-      }],
-      jgfwList: [{
-        key: '全部',
-        value: ''
-      }, {
-        key: '10以下',
-        value: '10'
-      }, {
-        key: '10-20',
-        value: '20'
-      }, {
-        key: '20-30',
-        value: '30'
-      }, {
-        key: '30-50',
-        value: '50'
-      }, {
-        key: '50-100',
-        value: '100'
-      }, {
-        key: '100-200',
-        value: '200'
-      }, {
-        key: '200以上',
-        value: '300'
       }],
       formData: {
         sk_code: '',
@@ -147,17 +112,6 @@ export default {
     getBkListFunc() {
       getBkList().then(response => {
         this.bkList = response.data
-      })
-    },
-    addSkWatchFunc(row) {
-      addSkWatch({ sk_code: row.skCode }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: '收藏 Successfully',
-          type: 'success',
-          duration: 2000
-        })
-        this.fetchData()
       })
     },
     changeSort(val) {

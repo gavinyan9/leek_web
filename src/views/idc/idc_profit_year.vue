@@ -52,7 +52,7 @@
       <el-table-column label="板块" width="70" prop="bkName" />
       <el-table-column label="二级板块" prop="bkRemark" width="96" sortable />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="涨跌" width="50" prop="skZdf" />
+      <el-table-column label="涨跌" width="52" prop="skZdf" />
       <el-table-column label="月度" align="center" width="70" prop="mon1" sortable />
       <el-table-column label="2021" align="center" width="72" prop="year1" sortable />
       <el-table-column label="2020" align="center" width="52" prop="year2" />
@@ -60,10 +60,9 @@
       <el-table-column label="2018" align="center" width="52" prop="year4" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
       <el-table-column label="评分" align="center" width="46" prop="skScore" />
-      <el-table-column fixed="right" label="操作" width="120">
+      <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
           <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
       </el-table-column>
@@ -81,7 +80,7 @@
 </template>
 
 <script>
-import { addSkWatch, delCompany, profitYearPages } from '@/api/idc'
+import { delCompany, profitYearPages } from '@/api/idc'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
@@ -145,17 +144,6 @@ export default {
     getBkListFunc() {
       getBkList().then(response => {
         this.bkList = response.data
-      })
-    },
-    addSkWatchFunc(row) {
-      addSkWatch({ sk_code: row.skCode }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: '收藏 Successfully',
-          type: 'success',
-          duration: 2000
-        })
-        this.fetchData()
       })
     },
     changeSort(val) {

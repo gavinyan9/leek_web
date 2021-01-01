@@ -31,7 +31,8 @@ export default {
               { 'name': '多氟多', 'value': '002407', 'children': [{ 'name': '六氟磷酸锂龙头' }] },
               { 'name': '法拉电子', 'value': '600563', 'children': [{ 'name': '薄膜电容器龙头' }] },
               { 'name': '杉杉股份', 'value': '600884', 'children': [{ 'name': '正极材料龙头' }] },
-              { 'name': '璞泰来', 'value': '603659', 'children': [{ 'name': '负极材料龙头' }] }
+              { 'name': '璞泰来', 'value': '603659', 'children': [{ 'name': '负极材料龙头' }] },
+              { 'name': '科达利', 'value': '002850', 'children': [{ 'name': '锂电池构件' }] }
             ]
           }, {
             'name': '光伏',
@@ -81,11 +82,6 @@ export default {
                 { 'name': '中材科技', 'value': '002080' }
               ]
             }, {
-              'name': '风塔',
-              'children': [
-                { 'name': '天顺风能', 'value': '002531' }
-              ]
-            }, {
               'name': '俦件',
               'children': [
                 { 'name': '日月股份', 'value': '603218' },
@@ -94,8 +90,7 @@ export default {
             }, {
               'name': '整机',
               'children': [
-                { 'name': '金风科技', 'value': '002202' },
-                { 'name': '明阳智能', 'value': '601615' }
+                { 'name': '金风科技', 'value': '002202' }
               ]
             }]
           }]

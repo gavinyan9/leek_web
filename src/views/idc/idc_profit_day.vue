@@ -55,10 +55,9 @@
       <el-table-column label="4D" align="center" width="52" prop="day4" />
       <el-table-column label="5D" align="center" width="52" prop="day5" />
       <el-table-column label="评分" align="center" width="46" prop="skScore" />
-      <el-table-column fixed="right" label="操作" width="90">
+      <el-table-column fixed="right" label="操作" width="60">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -75,7 +74,6 @@
 </template>
 
 <script>
-import { addSkWatch } from '@/api/idc'
 import { getPfDayPages, syncDayGj } from '@/api/profit'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
@@ -137,17 +135,6 @@ export default {
         this.$notify({
           title: 'Success',
           message: 'sync Successfully',
-          type: 'success',
-          duration: 1000
-        })
-        this.fetchData()
-      })
-    },
-    addSkWatchFunc(row) {
-      addSkWatch({ sk_code: row.skCode }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: '收藏 Successfully',
           type: 'success',
           duration: 1000
         })

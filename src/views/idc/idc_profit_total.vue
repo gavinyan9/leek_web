@@ -57,7 +57,6 @@
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
           <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
-          <el-button type="text" size="small" @click="addSkWatchFunc(scope.row)">收藏</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -74,7 +73,7 @@
 </template>
 
 <script>
-import { addSkWatch, delCompany } from '@/api/idc'
+import { delCompany } from '@/api/idc'
 import { getPfTotalPages } from '@/api/profit'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
@@ -92,12 +91,11 @@ export default {
         limit: 30,
         sk_code: '',
         sk_name: '',
-        gjfw: '',
         bkCode: '',
         sort: 'sk_score'
       },
       bkList: [{
-        bk_code: '板块',
+        bk_code: '行业',
         bk_name: ''
       }]
     }
@@ -140,17 +138,6 @@ export default {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false
-      })
-    },
-    addSkWatchFunc(row) {
-      addSkWatch({ sk_code: row.skCode }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: '收藏 Successfully',
-          type: 'success',
-          duration: 1000
-        })
-        this.fetchData()
       })
     }
   }
