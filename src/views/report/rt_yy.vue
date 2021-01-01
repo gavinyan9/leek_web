@@ -23,8 +23,7 @@ export default {
           {
             'name': '中药',
             'children': [
-              { 'name': '片仔癀', 'value': '', 'children': [{ 'name': '国内中成药龙头' }] },
-              { 'name': '云南白药', 'value': '', 'children': [{ 'name': '品牌中药龙头企业，国家级绝密配方' }] }
+              { 'name': '片仔癀', 'value': '', 'children': [{ 'name': '国内中成药龙头' }] }
             ]
           }, {
             'name': '化学制药',

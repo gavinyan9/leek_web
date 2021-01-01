@@ -24,7 +24,6 @@ export default {
           {
             'name': '锂电池',
             'children': [
-              { 'name': '比亚迪', 'value': '002594', 'children': [{ 'name': '新能源汽车技术综合实力第一' }] },
               { 'name': '赣锋锂业', 'value': '002460', 'children': [{ 'name': '锂电池原材料龙头' }] },
               { 'name': '华友钴业', 'value': '603799', 'children': [{ 'name': '金属钴龙头，国内市场占有率最大' }] },
               { 'name': '天赐材料', 'value': '002709', 'children': [{ 'name': '国内电解液龙头' }] },

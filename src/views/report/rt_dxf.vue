@@ -28,6 +28,7 @@ export default {
             { 'name': '安井食品', 'value': '603345', 'children': [{ 'name': '速冻火锅料龙头' }] },
             { 'name': '良品铺子', 'value': '603719', 'children': [{ 'name': '国内休闲零食龙头' }] },
             { 'name': '伊利股份', 'value': '600887', 'children': [{ 'name': '国内乳业龙头' }] },
+            { 'name': '千禾味业', 'value': '603027', 'children': [{ 'name': '酱油二龙头' }] },
             { 'name': '海天味业', 'value': '603288', 'children': [{ 'name': '国内酱油行业龙头' }] },
             { 'name': '恒顺醋业', 'value': '600305', 'children': [{ 'name': '国内食醋龙头' }] }
           ]
@@ -47,6 +48,7 @@ export default {
         }, {
           'name': '汽车',
           'children': [
+            { 'name': '比亚迪', 'value': '002594', 'children': [{ 'name': '新能源汽车技术综合实力第一' }] },
             { 'name': '长安汽车', 'value': '000625', 'children': [{ 'name': '国产最酷炫的SUV' }] },
             { 'name': '长城汽车', 'value': '601633', 'children': [{ 'name': '自主品牌行业龙头' }] }
           ]

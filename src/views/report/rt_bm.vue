@@ -48,11 +48,12 @@
       <el-table-column label="3D" align="center" width="52" prop="day3" />
       <el-table-column label="4D" align="center" width="52" prop="day4" />
       <el-table-column label="5D" align="center" width="52" prop="day5" />
-      <el-table-column label="10月" align="center" width="52" prop="mon3" />
-      <el-table-column label="11月" align="center" width="52" prop="mon2" />
-      <el-table-column label="12月" align="center" width="52" prop="mon1" />
-      <el-table-column label="2020" align="center" width="58" prop="year1" />
-      <el-table-column label="2019" align="center" width="58" prop="year2" />
+      <el-table-column label="11月" align="center" width="52" prop="mon3" />
+      <el-table-column label="12月" align="center" width="52" prop="mon2" />
+      <el-table-column label="1月" align="center" width="52" prop="mon1" />
+      <el-table-column label="2021" align="center" width="52" prop="year1" />
+      <el-table-column label="2020" align="center" width="52" prop="year2" />
+      <el-table-column label="2019" align="center" width="52" prop="year3" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
       <el-table-column fixed="right" label="操作" width="50">
         <template slot-scope="scope">
@@ -86,7 +87,7 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 30,
+        limit: 20,
         sk_code: '',
         sk_name: '',
         bkCode: '',
@@ -97,8 +98,13 @@ export default {
         { gn_code: 'G001', gn_name: '锂电池' },
         { gn_code: 'G002', gn_name: '光伏' },
         { gn_code: 'G003', gn_name: '高端制造' },
+        { gn_code: 'G016', gn_name: '军工' },
         { gn_code: 'G006', gn_name: '医药' },
-        { gn_code: 'G008', gn_name: '大消费' }
+        { gn_code: 'G008', gn_name: '大消费' },
+        { gn_code: 'G012', gn_name: '汽车' },
+        { gn_code: 'G020', gn_name: '软件' },
+        { gn_code: 'G010', gn_name: '半导体' }
+
       ]
     }
   },

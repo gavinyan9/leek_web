@@ -28,6 +28,11 @@ const reportRouter = {
     component: () => import('@/views/report/rt_dxf'),
     meta: { title: '大消费', icon: 'chart' }
   }, {
+    path: 'rt_kj',
+    name: '大科技',
+    component: () => import('@/views/report/rt_kj'),
+    meta: { title: '大科技', icon: 'chart' }
+  }, {
     path: 'rt_bm',
     name: '白马股',
     component: () => import('@/views/report/rt_bm'),
