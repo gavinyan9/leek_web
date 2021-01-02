@@ -23,9 +23,9 @@ const idcRouter = {
     component: () => import('@/views/idc/idc_profit_year'),
     meta: { title: '年收益率', icon: 'chart' }
   }, {
-    path: 'rt_bm',
+    path: 'idc_bm',
     name: '白马股',
-    component: () => import('@/views/report/rt_bm'),
+    component: () => import('@/views/idc/idc_bm'),
     meta: { title: '白马股', icon: 'chart' }
   }, {
     path: 'company',

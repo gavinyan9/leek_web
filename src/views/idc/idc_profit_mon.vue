@@ -43,7 +43,7 @@
       <el-table-column label="名称" prop="skName" width="70" />
       <el-table-column label="行业" width="80" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="涨跌" width="52" prop="skZdf" />
+      <el-table-column label="涨跌" width="56" prop="skZdf" />
       <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
       <el-table-column label="1月" align="center" width="66" prop="mon1" sortable />
       <el-table-column label="12月" align="center" width="50" prop="mon2" />
@@ -88,14 +88,14 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 20,
+        limit: 10,
         sk_code: '',
         sk_name: '',
         bkCode: '',
         sort: 'sk_score'
       },
       bkList: [{
-        bk_code: '全部',
+        bk_code: '行业',
         bk_name: ''
       }],
       formData: {

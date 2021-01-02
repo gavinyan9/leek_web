@@ -41,13 +41,12 @@
       </el-table-column>
       <el-table-column align="center" label="代码" prop="skCode" width="66" />
       <el-table-column label="名称" prop="skName" width="70" />
+      <el-table-column label="行业" width="70" prop="bk2Name" />
       <el-table-column label="板块" width="70" prop="gnName" />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />
-      <el-table-column label="2D" align="center" width="52" prop="day2" />
+      <el-table-column label="2D" align="center" width="56" prop="day2" />
       <el-table-column label="3D" align="center" width="52" prop="day3" />
-      <el-table-column label="4D" align="center" width="52" prop="day4" />
-      <el-table-column label="5D" align="center" width="52" prop="day5" />
       <el-table-column label="11月" align="center" width="52" prop="mon3" />
       <el-table-column label="12月" align="center" width="52" prop="mon2" />
       <el-table-column label="1月" align="center" width="52" prop="mon1" />
@@ -87,7 +86,7 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 20,
+        limit: 10,
         sk_code: '',
         sk_name: '',
         bkCode: '',
