@@ -21,7 +21,7 @@
           :value="item.value"
         />
       </el-select>
-      <el-select v-model="listQuery.bkCode" placeholder="板块名称" style="width: 120px;margin-left:3px;">
+      <el-select v-model="listQuery.bkCode" placeholder="行业名称" style="width: 120px;margin-left:3px;">
         <el-option
           v-for="item in bkList"
           :key="item.bk_code"
@@ -50,14 +50,14 @@
       <el-table-column align="center" label="代码" prop="skCode" width="68" />
       <el-table-column label="名称" prop="skName" width="70" />
       <el-table-column label="行业" width="70" prop="bkName" />
-      <el-table-column label="行业细分" prop="bkRemark" width="96" sortable />
+      <el-table-column label="行业细分" prop="bk2Name" width="96" sortable />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="涨跌" width="52" prop="skZdf" />
-      <el-table-column label="月度" align="center" width="70" prop="mon1" sortable />
+      <el-table-column label="12月" align="center" width="60" prop="mon2" />
+      <el-table-column label="1月" align="center" width="70" prop="mon1" sortable />
       <el-table-column label="2021" align="center" width="72" prop="year1" sortable />
       <el-table-column label="2020" align="center" width="52" prop="year2" />
       <el-table-column label="2019" align="center" width="52" prop="year3" />
-      <el-table-column label="2018" align="center" width="52" prop="year4" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
       <el-table-column label="评分" align="center" width="46" prop="skScore" />
       <el-table-column fixed="right" label="操作" width="90">

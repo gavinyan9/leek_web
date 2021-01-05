@@ -27,9 +27,9 @@
       <el-table-column label="现价" prop="sk_xj" width="80" />
       <el-table-column label="涨跌幅" align="center" prop="sk_zdf" width="66" />
       <el-table-column label="持股量" prop="sk_hold" width="66" />
-      <el-table-column label="持股额" prop="hold_money" width="68" />
+      <el-table-column label="持股金额" prop="hold_money" width="76" />
       <el-table-column label="市值(亿)" prop="sk_ltsz" align="center" width="80" />
-      <el-table-column label="评分" prop="sk_score" align="center" width="50" />
+      <el-table-column label="成交额" prop="sk_cje" align="center" width="76" />
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="deleteData(scope.row)">移除</el-button>

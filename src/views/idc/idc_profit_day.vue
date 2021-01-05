@@ -13,7 +13,7 @@
         style="width: 120px;margin-left:3px;"
         @keyup.enter.native="handleFilter"
       />
-      <el-select v-model="listQuery.bkCode" placeholder="板块名称" style="width: 120px;margin-left:3px;">
+      <el-select v-model="listQuery.bkCode" placeholder="行业名称" style="width: 120px;margin-left:3px;">
         <el-option
           v-for="item in bkList"
           :key="item.bk_code"
@@ -131,7 +131,7 @@ export default {
       })
     },
     syncDayGjFunc() {
-      syncDayGj().then(() => {
+      syncDayGj({ flag: 'SK_INFO' }).then(() => {
         this.$notify({
           title: 'Success',
           message: 'sync Successfully',

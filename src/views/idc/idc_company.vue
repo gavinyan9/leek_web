@@ -13,7 +13,7 @@
         style="width: 120px;margin-left:3px;"
         @keyup.enter.native="handleFilter"
       />
-      <el-select v-model="listQuery.bk_code" placeholder="板块名称" style="width: 120px;margin-left:3px;">
+      <el-select v-model="listQuery.bk_code" placeholder="行业名称" style="width: 120px;margin-left:3px;">
         <el-option
           v-for="item in bkList"
           :key="item.bk_code"
@@ -23,7 +23,7 @@
       </el-select>
       <el-input
         v-model="listQuery.bk_remark"
-        placeholder="二级板块"
+        placeholder="二级行业"
         style="width: 120px;margin-left:3px;"
         @keyup.enter.native="handleFilter"
       />
@@ -32,6 +32,9 @@
       </el-button>
       <el-button class="filter-item" style="margin-left: 8px;" type="primary" @click="handleCreate">
         Add
+      </el-button>
+      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncDayGjFunc">
+        同步
       </el-button>
     </div>
     <el-table
@@ -109,6 +112,7 @@
 </template>
 
 <script>
+import { syncDayGj } from '@/api/profit'
 import { addCompany, companyPages, delCompany } from '@/api/idc'
 import { getBkList } from '@/api/stock'
 
@@ -169,6 +173,18 @@ export default {
         this.fetchData()
       })
     },
+    syncDayGjFunc() {
+      syncDayGj({ flag: 'ALL' }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'sync Successfully',
+          type: 'success',
+          duration: 1000
+        })
+        this.fetchData()
+      })
+    },
+
     handleFilter() {
       this.listQuery.page = 1
       this.fetchData()
