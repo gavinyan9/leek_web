@@ -41,18 +41,19 @@
       </el-table-column>
       <el-table-column align="center" label="代码" prop="skCode" width="66" />
       <el-table-column label="名称" prop="skName" width="70" />
-      <el-table-column label="行业" width="80" prop="bkName" />
+      <el-table-column label="行业" width="70" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="涨跌" width="56" prop="skZdf" />
-      <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
-      <el-table-column label="1月" align="center" width="66" prop="mon1" sortable />
-      <el-table-column label="12月" align="center" width="50" prop="mon2" />
-      <el-table-column label="11月" align="center" width="50" prop="mon3" />
-      <el-table-column label="10月" align="center" width="50" prop="mon4" />
-      <el-table-column label="9月" align="center" width="50" prop="mon5" />
+      <el-table-column label="涨跌" width="52" prop="skZdf" />
       <el-table-column label="8月" align="center" width="50" prop="mon6" />
-      <el-table-column label="市值" align="center" width="62" prop="skLtsz" />
-      <el-table-column label="评分" align="center" width="50" prop="skScore" />
+      <el-table-column label="9月" align="center" width="50" prop="mon5" />
+      <el-table-column label="10月" align="center" width="50" prop="mon4" />
+      <el-table-column label="11月" align="center" width="50" prop="mon3" />
+      <el-table-column label="12月" align="center" width="50" prop="mon2" />
+      <el-table-column label="1月" align="center" width="66" prop="mon1" sortable />
+      <el-table-column label="2021" align="center" width="72" prop="year1" sortable />
+      <el-table-column label="2020" align="center" width="58" prop="year2" />
+      <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
+      <el-table-column label="评分" align="center" width="46" prop="skScore" />
       <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>

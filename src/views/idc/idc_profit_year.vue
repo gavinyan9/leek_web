@@ -53,11 +53,11 @@
       <el-table-column label="行业细分" prop="bk2Name" width="96" sortable />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="涨跌" width="52" prop="skZdf" />
-      <el-table-column label="12月" align="center" width="60" prop="mon2" />
       <el-table-column label="1月" align="center" width="70" prop="mon1" sortable />
       <el-table-column label="2021" align="center" width="72" prop="year1" sortable />
       <el-table-column label="2020" align="center" width="52" prop="year2" />
       <el-table-column label="2019" align="center" width="52" prop="year3" />
+      <el-table-column label="2018" align="center" width="52" prop="year4" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
       <el-table-column label="评分" align="center" width="46" prop="skScore" />
       <el-table-column fixed="right" label="操作" width="90">
