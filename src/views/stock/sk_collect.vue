@@ -23,13 +23,13 @@
       </el-table-column>
       <el-table-column align="center" prop="sk_code" label="代码" width="68" />
       <el-table-column label="名称" prop="sk_name" width="80" />
-      <el-table-column label="板块" prop="gn_name" width="80" />
-      <el-table-column label="现价" prop="sk_xj" width="80" />
-      <el-table-column label="涨跌幅" align="center" prop="sk_zdf" width="66" />
-      <el-table-column label="持股量" prop="sk_hold" width="66" />
-      <el-table-column label="持股金额" prop="hold_money" width="76" />
-      <el-table-column label="市值(亿)" prop="sk_ltsz" align="center" width="80" />
-      <el-table-column label="成交额" prop="sk_cje" align="center" width="76" />
+      <el-table-column label="板块" prop="gn_name" width="80" sortable />
+      <el-table-column label="现价" prop="sk_xj" width="80" sortable />
+      <el-table-column label="涨跌幅" prop="sk_zdf" width="82" sortable />
+      <el-table-column label="持股量" prop="sk_hold" width="82" sortable />
+      <el-table-column label="金额" prop="hold_money" width="82" sortable />
+      <el-table-column label="市值" prop="sk_ltsz" width="86" sortable />
+      <el-table-column label="成交额" prop="sk_cje" width="86" sortable />
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="deleteData(scope.row)">移除</el-button>
