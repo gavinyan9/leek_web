@@ -41,7 +41,7 @@
       </el-table-column>
       <el-table-column align="center" label="代码" prop="skCode" width="66" />
       <el-table-column label="名称" prop="skName" width="70" />
-      <el-table-column label="行业" width="70" prop="bk2Name" />
+      <el-table-column label="行业" width="100" prop="bk2Name" />
       <el-table-column label="板块" width="70" prop="gnName" />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />
@@ -52,7 +52,6 @@
       <el-table-column label="1月" align="center" width="52" prop="mon1" />
       <el-table-column label="2021" align="center" width="52" prop="year1" />
       <el-table-column label="2020" align="center" width="52" prop="year2" />
-      <el-table-column label="2019" align="center" width="52" prop="year3" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
       <el-table-column fixed="right" label="操作" width="50">
         <template slot-scope="scope">
@@ -86,7 +85,7 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 10,
+        limit: 20,
         sk_code: '',
         sk_name: '',
         bkCode: '',

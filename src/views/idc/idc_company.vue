@@ -21,12 +21,6 @@
           :value="item.bk_code"
         />
       </el-select>
-      <el-input
-        v-model="listQuery.bk_remark"
-        placeholder="二级行业"
-        style="width: 120px;margin-left:3px;"
-        @keyup.enter.native="handleFilter"
-      />
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
@@ -53,10 +47,10 @@
       </el-table-column>
       <el-table-column align="center" label="代码" prop="skCode" width="88" />
       <el-table-column label="名称" prop="skName" width="96" />
-      <el-table-column label="板块" prop="bkName" width="96" />
-      <el-table-column label="板块详情" prop="bkRemark" width="230" />
+      <el-table-column label="行业" prop="bkName" width="96" />
+      <el-table-column label="行业细分" prop="bk2Name" width="120" />
       <el-table-column label="现价" width="76" prop="skXj" />
-      <el-table-column label="市值(亿)" align="center" width="90" prop="skLtsz" sortable />
+      <el-table-column label="市值" align="center" width="90" prop="skLtsz" sortable />
       <el-table-column label="年化" align="center" width="90" prop="year1" sortable />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">

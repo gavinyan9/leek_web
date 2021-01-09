@@ -29,8 +29,7 @@ export default {
             'name': '化学制药',
             'children': [
               { 'name': '恒瑞医药', 'value': '', 'children': [{ 'name': '国内化学制药、创新药龙头.抗肿瘤药、手术用药和造影剂,A股最大市值医药股' }] },
-              { 'name': '复星医药', 'value': '', 'children': [{ 'name': '覆盖药品+器械+服务的全产业链的龙头' }] },
-              { 'name': '华海药业', 'value': '600521', 'children': [{ 'name': '国内特色原料药行业的龙头企业' }] }
+              { 'name': '复星医药', 'value': '', 'children': [{ 'name': '覆盖药品+器械+服务的全产业链的龙头' }] }
             ]
           }, {
             'name': '生产外包',
@@ -60,11 +59,6 @@ export default {
             'children': [
               { 'name': '大参林', 'value': '', 'children': [{ 'name': '专注于中西成药、保健品、医疗企业以及其他商品的直营连锁零售业务' }] },
               { 'name': '益丰药房', 'value': '', 'children': [{ 'name': '国内区域领先的大型医药零售连锁企业' }] }
-            ]
-          }, {
-            'name': '医美',
-            'children': [
-              { 'name': '朗姿股份', 'value': '002612', 'children': [{ 'name': '新概念人气妖股' }] }
             ]
           }
         ]

@@ -39,15 +39,15 @@ export default {
           }, {
             'name': '军工',
             'children': [
-              { 'name': '北摩高科', 'value': '002985', 'children': [{ 'name': '航空制动领域龙头' }] },
-              { 'name': '洪都航空', 'value': '600316', 'children': [{ 'name': '国产教练机龙头' }] },
               { 'name': '航发动力', 'value': '600893', 'children': [{ 'name': '国内唯一生产航空全种类发动机上市公司' }] },
-              { 'name': '航天发展', 'value': '000547', 'children': [{ 'name': '国防电子对抗龙头' }] },
-              { 'name': '航天彩虹', 'value': '002389', 'children': [{ 'name': '国内无人机领域龙头企业' }] },
               { 'name': '中航沈飞', 'value': '600760', 'children': [{ 'name': '国内唯一一家战斗机上市公司' }] },
+              { 'name': '中航西飞', 'value': '600768', 'children': [{ 'name': '国内军民用大飞机整机制造唯一平台' }] },
+              { 'name': '洪都航空', 'value': '600316', 'children': [{ 'name': '国产教练机龙头' }] },
+              { 'name': '北摩高科', 'value': '002985', 'children': [{ 'name': '航空制动领域龙头' }] },
               { 'name': '中航高科', 'value': '600862', 'children': [{ 'name': '航空复材领域龙头' }] },
               { 'name': '中航光电', 'value': '002179', 'children': [{ 'name': '最大军用连接器制造企业' }] },
-              { 'name': '中航西飞', 'value': '600768', 'children': [{ 'name': '国内军民用大飞机整机制造唯一平台' }] }
+              { 'name': '航天发展', 'value': '000547', 'children': [{ 'name': '国防电子对抗龙头' }] },
+              { 'name': '航天彩虹', 'value': '002389', 'children': [{ 'name': '国内无人机领域龙头企业' }] }
             ]
           }
         ]
