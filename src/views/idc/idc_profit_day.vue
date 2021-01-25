@@ -49,12 +49,14 @@
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
       <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
       <el-table-column label="月度" align="center" width="70" prop="mon1" sortable />
+      <el-table-column label="last5" align="center" width="56" prop="last5" />
+      <el-table-column label="last3" align="center" width="56" prop="last3" />
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />
       <el-table-column label="2D" align="center" width="52" prop="day2" />
       <el-table-column label="3D" align="center" width="52" prop="day3" />
       <el-table-column label="4D" align="center" width="52" prop="day4" />
       <el-table-column label="5D" align="center" width="52" prop="day5" />
-      <el-table-column label="评分" align="center" width="46" prop="skScore" />
+      <el-table-column label="6D" align="center" width="52" prop="day6" />
       <el-table-column fixed="right" label="操作" width="60">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
@@ -88,7 +90,7 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 10,
+        limit: 20,
         sk_code: '',
         sk_name: '',
         gjfw: '',
