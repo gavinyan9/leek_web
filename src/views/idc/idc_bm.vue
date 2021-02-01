@@ -47,9 +47,9 @@
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />
       <el-table-column label="2D" align="center" width="56" prop="day2" />
       <el-table-column label="3D" align="center" width="52" prop="day3" />
-      <el-table-column label="11月" align="center" width="52" prop="mon3" />
-      <el-table-column label="12月" align="center" width="52" prop="mon2" />
-      <el-table-column label="1月" align="center" width="52" prop="mon1" />
+      <el-table-column label="90D" align="center" width="52" prop="mon3" />
+      <el-table-column label="60D" align="center" width="52" prop="mon2" />
+      <el-table-column label="30D" align="center" width="52" prop="mon1" />
       <el-table-column label="2021" align="center" width="52" prop="year1" />
       <el-table-column label="2020" align="center" width="52" prop="year2" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />

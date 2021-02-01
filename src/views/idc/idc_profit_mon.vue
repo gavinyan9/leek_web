@@ -45,11 +45,11 @@
       <el-table-column label="行业细分" width="86" prop="bk2Name" />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="涨跌" width="52" prop="skZdf" />
-      <el-table-column label="9月" align="center" width="50" prop="mon5" />
-      <el-table-column label="10月" align="center" width="50" prop="mon4" />
-      <el-table-column label="11月" align="center" width="50" prop="mon3" />
-      <el-table-column label="12月" align="center" width="50" prop="mon2" />
-      <el-table-column label="1月" align="center" width="66" prop="mon1" sortable />
+      <el-table-column label="10月" align="center" width="50" prop="mon5" />
+      <el-table-column label="11月" align="center" width="50" prop="mon4" />
+      <el-table-column label="12月" align="center" width="50" prop="mon3" />
+      <el-table-column label="1月" align="center" width="50" prop="mon2" />
+      <el-table-column label="2月" align="center" width="66" prop="mon1" sortable />
       <el-table-column label="2021" align="center" width="72" prop="year1" sortable />
       <el-table-column label="2020" align="center" width="58" prop="year2" />
       <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
