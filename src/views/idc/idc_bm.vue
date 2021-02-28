@@ -41,14 +41,14 @@
       </el-table-column>
       <el-table-column align="center" label="代码" prop="skCode" width="66" />
       <el-table-column label="名称" prop="skName" width="70" />
-      <el-table-column label="行业" width="100" prop="bk2Name" />
+      <el-table-column label="行业" width="90" prop="bk2Name" />
       <el-table-column label="板块" width="70" prop="gnName" />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />
       <el-table-column label="2D" align="center" width="56" prop="day2" />
       <el-table-column label="3D" align="center" width="52" prop="day3" />
-      <el-table-column label="last3" align="center" width="56" prop="last3" />
-      <el-table-column label="last5" align="center" width="56" prop="last5" />
+      <el-table-column label="last3" align="center" width="50" prop="last3" />
+      <el-table-column label="last5" align="center" width="50" prop="last5" />
       <el-table-column label="30D" align="center" width="68" prop="mon1" sortable />
       <el-table-column label="60D" align="center" width="52" prop="mon2" />
       <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
@@ -99,11 +99,13 @@ export default {
         { gn_code: 'G016', gn_name: '军工' },
         { gn_code: 'G006', gn_name: '医药' },
         { gn_code: 'G008', gn_name: '大消费' },
+        { gn_code: 'G0081', gn_name: '酿酒' },
         { gn_code: 'G012', gn_name: '汽车' },
         { gn_code: 'G020', gn_name: '软件' },
+        { gn_code: 'G021', gn_name: '妖股' },
+        { gn_code: 'G022', gn_name: '银行' },
         { gn_code: 'G018', gn_name: '大白马' },
         { gn_code: 'G010', gn_name: '芯片' }
-
       ]
     }
   },
