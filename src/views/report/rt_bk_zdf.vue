@@ -14,11 +14,12 @@
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
-      <el-table-column label="代码" prop="bk_code" width="86" />
-      <el-table-column label="板块" prop="bk_name" width="86" />
-      <el-table-column label="总数" align="center" prop="total" width="90" sortable />
-      <el-table-column label="涨数量" align="center" prop="sk_red" width="90" sortable />
-      <el-table-column label="比例" align="center" prop="zdf_red_bl" width="90" sortable />
+      <el-table-column label="板块" prop="bk_name" width="90" />
+      <el-table-column label="总数" align="center" prop="bk_zs" width="90" sortable />
+      <el-table-column label="上涨数" align="center" prop="bk_zf" width="100" sortable />
+      <el-table-column label="下跌数" align="center" prop="bk_df" width="100" sortable />
+      <el-table-column label="比例" align="center" prop="bk_bl" width="90" sortable />
+      <el-table-column label="成交额" align="center" prop="bk_cje" width="100" sortable />
     </el-table>
   </div>
 </template>

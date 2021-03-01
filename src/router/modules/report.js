@@ -8,6 +8,11 @@ const reportRouter = {
   component: Layout,
   meta: { title: 'Report', icon: 'chart' },
   children: [{
+    path: 'rt_bk_zdf',
+    name: '板块热度',
+    component: () => import('@/views/report/rt_bk_zdf'),
+    meta: { title: '板块热度', icon: 'chart' }
+  }, {
     path: 'rt_ny',
     name: '新能源',
     component: () => import('@/views/report/rt_ny'),
@@ -37,11 +42,6 @@ const reportRouter = {
     name: '酿酒',
     component: () => import('@/views/report/rt_nj'),
     meta: { title: '酿酒', icon: 'chart' }
-  }, {
-    path: 'rt_bk_zdf',
-    name: '板块涨跌',
-    component: () => import('@/views/report/rt_bk_zdf'),
-    meta: { title: '板块涨跌', icon: 'chart' }
   }]
 }
 export default reportRouter
