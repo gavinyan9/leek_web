@@ -36,16 +36,13 @@
       <el-table-column label="名称" prop="sk_name" width="78" />
       <el-table-column label="板块" prop="bk_name" width="78" />
       <el-table-column label="现价" width="68" prop="sk_xj" />
-      <el-table-column label="市值" align="center" width="62" prop="sk_ltsz" />
       <el-table-column label="成交额" align="center" width="86" prop="sk_cje" sortable />
       <el-table-column label="1D" align="center" width="62" prop="sk_zdf" sortable />
-      <el-table-column label="月" align="center" width="50" prop="mon1" />
-      <el-table-column label="年" align="center" width="60" prop="year1" />
-      <el-table-column label="评分" align="center" width="50" prop="sk_score" />
+      <el-table-column label="涨跌天" align="center" width="80" prop="fx_zdt" />
+
       <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -61,7 +58,6 @@
 
 <script>
 import { getBkList, getMarketList } from '@/api/stock'
-import { delCompany } from '@/api/idc'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -98,17 +94,6 @@ export default {
     getBkListFunc() {
       getBkList().then(response => {
         this.bkList = response.data
-      })
-    },
-    delCompanyFunc(row) {
-      delCompany({ sk_code: row.sk_code }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'Deleted Successfully',
-          type: 'success',
-          duration: 2000
-        })
-        this.fetchData()
       })
     },
     changeSort(val) {

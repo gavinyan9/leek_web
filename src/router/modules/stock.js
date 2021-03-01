@@ -14,9 +14,15 @@ const stockRouter = {
     meta: { title: 'Collect', icon: 'star', affix: true }
   }, {
     path: 'market',
-    name: 'Market',
+    name: '个股热度',
     component: () => import('@/views/stock/sk_market'),
-    meta: { title: 'Market', icon: 'table', affix: true }
+    meta: { title: '个股热度', icon: 'table', affix: true }
+
+  }, {
+    path: 'rt_bk_zdf',
+    name: '板块热度',
+    component: () => import('@/views/report/rt_bk_zdf'),
+    meta: { title: '板块热度', icon: 'chart' }
   }, {
     path: 'note',
     name: 'Notes',

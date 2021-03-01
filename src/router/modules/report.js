@@ -8,11 +8,6 @@ const reportRouter = {
   component: Layout,
   meta: { title: 'Report', icon: 'chart' },
   children: [{
-    path: 'rt_bk_zdf',
-    name: '板块热度',
-    component: () => import('@/views/report/rt_bk_zdf'),
-    meta: { title: '板块热度', icon: 'chart' }
-  }, {
     path: 'rt_ny',
     name: '新能源',
     component: () => import('@/views/report/rt_ny'),
