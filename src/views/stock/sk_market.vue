@@ -36,10 +36,10 @@
       <el-table-column label="名称" prop="sk_name" width="78" />
       <el-table-column label="板块" prop="bk_name" width="78" />
       <el-table-column label="现价" width="68" prop="sk_xj" />
-      <el-table-column label="成交额" align="center" width="86" prop="sk_cje" sortable />
-      <el-table-column label="1D" align="center" width="62" prop="sk_zdf" sortable />
-      <el-table-column label="涨跌天" align="center" width="80" prop="fx_zdt" />
-
+      <el-table-column label="成交额" width="86" prop="sk_cje" sortable />
+      <el-table-column label="1D" width="62" prop="sk_zdf" sortable />
+      <el-table-column label="涨跌天" width="90" prop="fx_zdt" sortable />
+      <el-table-column label="总涨跌" width="90" prop="last_zdf" sortable />
       <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
@@ -74,7 +74,7 @@ export default {
         sk_code: '',
         sk_name: '',
         bk_code: '',
-        sort: 'sk_score'
+        sort: 'fx_zdt'
       },
       updateSkData: {
         sk_code: '',
