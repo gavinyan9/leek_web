@@ -13,6 +13,12 @@ const stockRouter = {
     component: () => import('@/views/stock/sk_collect'),
     meta: { title: 'Collect', icon: 'star', affix: true }
   }, {
+    path: 'wp_fx',
+    name: '尾盘选股',
+    component: () => import('@/views/stock/sk_wp_fx'),
+    meta: { title: '尾盘选股', icon: 'table', affix: true }
+
+  }, {
     path: 'market',
     name: '个股热度',
     component: () => import('@/views/stock/sk_market'),
@@ -28,11 +34,6 @@ const stockRouter = {
     name: 'Notes',
     component: () => import('@/views/stock/sk_note'),
     meta: { title: 'Notes', icon: 'form' }
-    /*    },{
-          path: 'income',
-          name: 'Income',
-          component: () => import('@/views/report/rt_income'),
-          meta: { title: 'Income', icon: 'chart' }*/
   }
   ]
 }

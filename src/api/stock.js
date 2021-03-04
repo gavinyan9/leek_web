@@ -1,5 +1,14 @@
 import request from '@/utils/request'
 
+// 查询尾盘数据列表
+export function getWpList(params) {
+  return request({
+    url: '/apis/stock/wp/list',
+    method: 'get',
+    params
+  })
+}
+
 // 查询板块下拉框
 export function getBkList(params) {
   return request({
