@@ -106,8 +106,7 @@
 </template>
 
 <script>
-import { syncDayGj } from '@/api/profit'
-import { addCompany, companyPages, delCompany } from '@/api/idc'
+import { addCompany, companyPages, delCompany, syncDayGj } from '@/api/idc'
 import { getBkList } from '@/api/stock'
 
 import Pagination from '@/components/Pagination'

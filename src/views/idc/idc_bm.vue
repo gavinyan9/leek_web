@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { getPfTotalPages } from '@/api/profit'
+import { getPfTotalPages } from '@/api/idc'
 import Pagination from '@/components/Pagination'
 
 export default {

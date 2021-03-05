@@ -73,8 +73,7 @@
 </template>
 
 <script>
-import { delCompany } from '@/api/idc'
-import { getPfMonPages } from '@/api/profit'
+import { delCompany, getPfMonPages } from '@/api/idc'
 import { getBkList } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 

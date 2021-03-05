@@ -23,15 +23,15 @@ const idcRouter = {
     component: () => import('@/views/idc/idc_profit_year'),
     meta: { title: '年收益率', icon: 'chart' }
   }, {
-    path: 'idc_bm',
-    name: '价投',
-    component: () => import('@/views/idc/idc_bm'),
-    meta: { title: '价投', icon: 'chart' }
-  }, {
     path: 'company',
     name: '上市公司',
     component: () => import('@/views/idc/idc_company'),
     meta: { title: '上市公司', icon: 'chart' }
+  }, {
+    path: 'idc_bm',
+    name: '价投',
+    component: () => import('@/views/idc/idc_bm'),
+    meta: { title: '价投', icon: 'chart' }
   }]
 }
 

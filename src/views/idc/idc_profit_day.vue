@@ -76,8 +76,7 @@
 </template>
 
 <script>
-import { getPfDayPages, syncDayGj } from '@/api/profit'
-import { getBkList } from '@/api/stock'
+import { getBkList, getPfDayPages, syncDayGj } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
