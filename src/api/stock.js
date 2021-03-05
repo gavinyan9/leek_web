@@ -1,9 +1,18 @@
 import request from '@/utils/request'
 
-// 查询尾盘数据列表
-export function getWpList(params) {
+// cycle分析分页查询
+export function getCyclePage(params) {
   return request({
-    url: '/apis/stock/wp/list',
+    url: '/apis/stock/cycle/page',
+    method: 'get',
+    params
+  })
+}
+
+// 查询尾盘数据列表
+export function getWpPage(params) {
+  return request({
+    url: '/apis/stock/wp/page',
     method: 'get',
     params
   })

@@ -19,6 +19,12 @@ const stockRouter = {
     meta: { title: '尾盘选股', icon: 'table', affix: true }
 
   }, {
+    path: 'cycle_fx',
+    name: 'cycle选股',
+    component: () => import('@/views/stock/sk_cycle_fx'),
+    meta: { title: 'cycle选股', icon: 'table', affix: true }
+
+  }, {
     path: 'market',
     name: '个股热度',
     component: () => import('@/views/stock/sk_market'),

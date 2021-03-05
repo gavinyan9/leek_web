@@ -39,24 +39,15 @@
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
-      <el-table-column align="center" label="代码" prop="skCode" width="66" />
-      <el-table-column label="名称" prop="skName" width="70" />
-      <el-table-column label="行业" width="70" prop="bkName" />
-      <el-table-column label="行业细分" width="86" prop="bk2Name" />
-      <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="涨跌" width="52" prop="skZdf" />
-      <el-table-column label="10月" align="center" width="50" prop="mon6" />
-      <el-table-column label="11月" align="center" width="50" prop="mon5" />
-      <el-table-column label="12月" align="center" width="50" prop="mon4" />
-      <el-table-column label="1月" align="center" width="50" prop="mon3" />
-      <el-table-column label="2月" align="center" width="50" prop="mon2" />
-      <el-table-column label="3月" align="center" width="66" prop="mon1" sortable />
-      <el-table-column label="2021" align="center" width="72" prop="year1" sortable />
-      <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
-      <el-table-column fixed="right" label="操作" width="90">
+      <el-table-column align="center" label="代码" prop="sk_code" width="66" />
+      <el-table-column label="名称" prop="sk_name" width="70" />
+      <el-table-column label="行业" width="120" prop="bk2_name" />
+      <el-table-column label="现价" width="60" prop="sk_xj" />
+      <el-table-column label="市值" align="center" width="56" prop="sk_ltsz" />
+      <el-table-column label="cycle" align="center" width="56" prop="cy_type" />
+      <el-table-column fixed="right" label="操作" width="60">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -73,13 +64,11 @@
 </template>
 
 <script>
-import { delCompany } from '@/api/idc'
-import { getPfMonPages } from '@/api/profit'
-import { getBkList } from '@/api/stock'
+import { getBkList, getCyclePage } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
-  name: 'IdcProfitMon',
+  name: 'SkFxCycle',
   components: { Pagination },
   data() {
     return {
@@ -88,7 +77,7 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 10,
+        limit: 30,
         sk_code: '',
         sk_name: '',
         bkCode: '',
@@ -97,11 +86,7 @@ export default {
       bkList: [{
         bk_code: '行业',
         bk_name: ''
-      }],
-      formData: {
-        sk_code: '',
-        sk_bk: ''
-      }
+      }]
     }
   },
   created() {
@@ -114,31 +99,20 @@ export default {
         this.bkList = response.data
       })
     },
-    changeSort(val) {
-      this.listQuery.sort = val.prop
-      this.fetchData()
-    },
     handleFilter() {
       this.listQuery.page = 1
       this.fetchData()
     },
-    delCompanyFunc(row) {
-      delCompany({ sk_code: row.skCode }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'Deleted Successfully',
-          type: 'success',
-          duration: 2000
-        })
-        this.fetchData()
-      })
+    changeSort(val) {
+      this.listQuery.sort = val.prop
+      this.fetchData()
     },
     goDetail(row) {
-      window.open('http://stockpage.10jqka.com.cn/' + row.skCode)
+      window.open('http://stockpage.10jqka.com.cn/' + row.sk_code)
     },
     fetchData() {
       this.listLoading = false
-      getPfMonPages(this.listQuery).then(response => {
+      getCyclePage(this.listQuery).then(response => {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false

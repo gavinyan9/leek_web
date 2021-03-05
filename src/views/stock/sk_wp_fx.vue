@@ -44,13 +44,13 @@
       <el-table-column label="行业" width="120" prop="bk2_name" />
       <el-table-column label="现价" width="60" prop="sk_xj" />
       <el-table-column label="市值" align="center" width="56" prop="sk_ltsz" />
-      <el-table-column label="涨跌" align="center" width="56" prop="sk_zdf" />
-      <el-table-column label="30min" align="center" width="66" prop="min6" />
-      <el-table-column label="35min" align="center" width="60" prop="min5" />
-      <el-table-column label="40min" align="center" width="60" prop="min4" />
-      <el-table-column label="45min" align="center" width="60" prop="min3" />
-      <el-table-column label="50min" align="center" width="60" prop="min2" />
-      <el-table-column label="55min" align="center" width="60" prop="min1" />
+      <el-table-column label="5min" align="center" width="56" prop="min1" />
+      <el-table-column label="10min" align="center" width="56" prop="min2" />
+      <el-table-column label="15min" align="center" width="56" prop="min3" />
+      <el-table-column label="20min" align="center" width="56" prop="min4" />
+      <el-table-column label="25min" align="center" width="56" prop="min5" />
+      <el-table-column label="30min" align="center" width="56" prop="min6" />
+      <el-table-column label="涨跌天" align="center" width="86" prop="fx_zdt" sortable />
       <el-table-column fixed="right" label="操作" width="60">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { getBkList, getWpList } from '@/api/stock'
+import { getBkList, getWpPage } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -118,7 +118,7 @@ export default {
     },
     fetchData() {
       this.listLoading = false
-      getWpList(this.listQuery).then(response => {
+      getWpPage(this.listQuery).then(response => {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false
