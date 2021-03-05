@@ -44,6 +44,9 @@
       <el-table-column label="行业" width="120" prop="bk2_name" />
       <el-table-column label="现价" width="60" prop="sk_xj" />
       <el-table-column label="市值" align="center" width="56" prop="sk_ltsz" />
+      <el-table-column label="zdf" width="60" prop="sk_zdf" />
+      <el-table-column label="zdt" width="60" prop="cy_zdt" />
+      <el-table-column label="p1" align="center" width="56" prop="cy_p1" />
       <el-table-column label="cycle" align="center" width="56" prop="cy_type" />
       <el-table-column fixed="right" label="操作" width="60">
         <template slot-scope="scope">
