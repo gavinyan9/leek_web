@@ -39,7 +39,7 @@ export function profitYearPages(params) {
 // 百强股分页查询
 export function getPfTotalPages(params) {
   return request({
-    url: '/apis/pf_total/pages',
+    url: '/apis/bm/pages',
     method: 'get',
     params
   })

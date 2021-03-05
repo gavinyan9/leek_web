@@ -32,7 +32,7 @@
       <el-table-column align="center" label="序号" width="50">
         <template slot-scope="scope">{{ scope.$index+1 }}</template>
       </el-table-column>
-      <el-table-column align="center" label="代码" prop="sk_code" width="68" />
+      <el-table-column label="代码" prop="sk_code" width="68" />
       <el-table-column label="名称" prop="sk_name" width="78" />
       <el-table-column label="板块" prop="bk_name" width="78" />
       <el-table-column label="现价" width="68" prop="sk_xj" />

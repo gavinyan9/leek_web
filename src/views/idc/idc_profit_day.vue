@@ -24,9 +24,6 @@
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
-      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncDayGjFunc">
-        同步
-      </el-button>
     </div>
     <el-table
       v-loading="listLoading"
@@ -44,19 +41,17 @@
       </el-table-column>
       <el-table-column align="center" label="代码" prop="skCode" width="66" />
       <el-table-column label="名称" prop="skName" width="70" />
-      <el-table-column label="行业" width="70" prop="bkName" />
+      <el-table-column label="行业" width="80" prop="bkName" />
       <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
+      <el-table-column label="市值" align="center" width="66" prop="skLtsz" />
       <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
       <el-table-column label="月度" align="center" width="70" prop="mon1" sortable />
-      <el-table-column label="last5" align="center" width="56" prop="last5" />
-      <el-table-column label="last3" align="center" width="56" prop="last3" />
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />
-      <el-table-column label="2D" align="center" width="52" prop="day2" />
-      <el-table-column label="3D" align="center" width="52" prop="day3" />
-      <el-table-column label="4D" align="center" width="52" prop="day4" />
-      <el-table-column label="5D" align="center" width="52" prop="day5" />
-      <el-table-column label="6D" align="center" width="52" prop="day6" />
+      <el-table-column label="2D" align="center" width="56" prop="day2" />
+      <el-table-column label="3D" align="center" width="56" prop="day3" />
+      <el-table-column label="4D" align="center" width="56" prop="day4" />
+      <el-table-column label="5D" align="center" width="56" prop="day5" />
+      <el-table-column label="6D" align="center" width="56" prop="day6" />
       <el-table-column fixed="right" label="操作" width="60">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
@@ -77,7 +72,7 @@
 
 <script>
 import { getBkList } from '@/api/stock'
-import { getPfDayPages, syncDayGj } from '@/api/idc'
+import { getPfDayPages } from '@/api/idc'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -130,17 +125,6 @@ export default {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false
-      })
-    },
-    syncDayGjFunc() {
-      syncDayGj({ flag: 'SK_INFO' }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'sync Successfully',
-          type: 'success',
-          duration: 1000
-        })
-        this.fetchData()
       })
     }
   }

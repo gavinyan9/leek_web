@@ -43,11 +43,12 @@
       <el-table-column label="名称" prop="sk_name" width="70" />
       <el-table-column label="行业" width="120" prop="bk2_name" />
       <el-table-column label="现价" width="60" prop="sk_xj" />
-      <el-table-column label="市值" align="center" width="56" prop="sk_ltsz" />
+      <el-table-column label="市值" width="60" prop="sk_ltsz" />
       <el-table-column label="zdf" width="60" prop="sk_zdf" />
-      <el-table-column label="zdt" width="60" prop="cy_zdt" />
-      <el-table-column label="p1" align="center" width="56" prop="cy_p1" />
-      <el-table-column label="cycle" align="center" width="56" prop="cy_type" />
+      <el-table-column label="p60" width="66" prop="cy_p1" sortable />
+      <el-table-column label="zdt" width="66" prop="cy_zdt" sortable />
+      <el-table-column label="p15" width="66" prop="cy_p2" />
+      <el-table-column label="cycle" width="60" prop="cy_type" />
       <el-table-column fixed="right" label="操作" width="60">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
@@ -83,8 +84,8 @@ export default {
         limit: 30,
         sk_code: '',
         sk_name: '',
-        bkCode: '',
-        sort: 'sk_score'
+        bk_code: '',
+        sort: 'sk_code'
       },
       bkList: [{
         bk_code: '行业',

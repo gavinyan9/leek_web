@@ -42,7 +42,7 @@
       <el-table-column align="center" label="代码" prop="skCode" width="66" />
       <el-table-column label="名称" prop="skName" width="70" />
       <el-table-column label="行业" width="70" prop="bkName" />
-      <el-table-column label="行业细分" width="86" prop="bk2Name" />
+      <el-table-column label="行业细分" width="98" prop="bk2Name" />
       <el-table-column label="现价" width="60" prop="skXj" />
       <el-table-column label="涨跌" width="52" prop="skZdf" />
       <el-table-column label="10月" align="center" width="50" prop="mon6" />
@@ -87,7 +87,7 @@ export default {
       listLoading: false,
       listQuery: {
         page: 1,
-        limit: 10,
+        limit: 20,
         sk_code: '',
         sk_name: '',
         bkCode: '',
