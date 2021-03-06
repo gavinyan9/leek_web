@@ -109,7 +109,7 @@ export default {
           title: 'Success',
           message: 'Deleted Successfully',
           type: 'success',
-          duration: 3000
+          duration: 2000
         })
         this.fetchData()
       })

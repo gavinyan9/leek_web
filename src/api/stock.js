@@ -1,9 +1,18 @@
 import request from '@/utils/request'
 
+// 修改CyStatus
+export function upCyStatus(params) {
+  return request({
+    url: '/apis/cycle/cy/upCyStat',
+    method: 'get',
+    params
+  })
+}
+
 // cycle分析分页查询
 export function getCyclePage(params) {
   return request({
-    url: '/apis/stock/cycle/page',
+    url: '/apis/cycle/pages',
     method: 'get',
     params
   })
