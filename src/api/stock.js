@@ -12,7 +12,25 @@ export function getCyclePage(params) {
 // 查询尾盘数据列表
 export function getWpPage(params) {
   return request({
-    url: '/apis/stock/wp/page',
+    url: '/apis/cycle/wp/page',
+    method: 'get',
+    params
+  })
+}
+
+// 将个股从尾盘观察区移除
+export function delCycleWp(params) {
+  return request({
+    url: '/apis/cycle/wp/del',
+    method: 'get',
+    params
+  })
+}
+
+// 添加个股至尾盘观察区
+export function addCycleWp(params) {
+  return request({
+    url: '/apis/cycle/wp/add',
     method: 'get',
     params
   })

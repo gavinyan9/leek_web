@@ -43,16 +43,18 @@
       <el-table-column label="名称" prop="sk_name" width="70" />
       <el-table-column label="行业" width="120" prop="bk2_name" />
       <el-table-column label="现价" width="60" prop="sk_xj" />
-      <el-table-column label="市值" align="center" width="56" prop="sk_ltsz" />
-      <el-table-column label="5min" align="center" width="56" prop="min1" />
-      <el-table-column label="10min" align="center" width="56" prop="min2" />
-      <el-table-column label="15min" align="center" width="56" prop="min3" />
-      <el-table-column label="20min" align="center" width="56" prop="min4" />
-      <el-table-column label="25min" align="center" width="56" prop="min5" />
-      <el-table-column label="30min" align="center" width="56" prop="min6" />
-      <el-table-column label="涨跌天" align="center" width="86" prop="fx_zdt" sortable />
-      <el-table-column fixed="right" label="操作" width="60">
+      <el-table-column label="市值" align="center" width="60" prop="sk_ltsz" />
+      <el-table-column label="差价" align="center" width="50" prop="xj_zd" />
+      <el-table-column label="5m" align="center" width="66" prop="min1" sortable />
+      <el-table-column label="10m" align="center" width="50" prop="min2" />
+      <el-table-column label="15m" align="center" width="50" prop="min3" />
+      <el-table-column label="20m" align="center" width="50" prop="min4" />
+      <el-table-column label="25m" align="center" width="50" prop="min5" />
+      <el-table-column label="30m" align="center" width="50" prop="min6" />
+      <el-table-column label="涨跌天" align="center" width="82" prop="fx_zdt" sortable />
+      <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
+          <el-button type="text" size="small" @click="delCycleWpFunc(scope.row)">移除</el-button>
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
         </template>
       </el-table-column>
@@ -70,7 +72,7 @@
 </template>
 
 <script>
-import { getBkList, getWpPage } from '@/api/stock'
+import { delCycleWp, getBkList, getWpPage } from '@/api/stock'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -87,7 +89,7 @@ export default {
         sk_code: '',
         sk_name: '',
         bkCode: '',
-        sort: 'sk_score'
+        sort: 'xj_zd'
       },
       bkList: [{
         bk_code: '行业',
@@ -100,6 +102,18 @@ export default {
     this.getBkListFunc()
   },
   methods: {
+    // 将个股从尾盘观察区移除
+    delCycleWpFunc(row) {
+      delCycleWp({ sk_code: row.sk_code }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'Deleted Successfully',
+          type: 'success',
+          duration: 3000
+        })
+        this.fetchData()
+      })
+    },
     getBkListFunc() {
       getBkList().then(response => {
         this.bkList = response.data

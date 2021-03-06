@@ -48,7 +48,7 @@
       <el-table-column label="p60" width="66" prop="cy_p1" sortable />
       <el-table-column label="zdt" width="66" prop="cy_zdt" sortable />
       <el-table-column label="p15" width="66" prop="cy_p2" />
-      <el-table-column label="cycle" width="60" prop="cy_type" />
+      <el-table-column label="cycle" width="60" prop="cy_status" />
       <el-table-column fixed="right" label="操作" width="60">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
