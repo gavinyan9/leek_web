@@ -13,7 +13,7 @@
         style="width: 120px;margin-left:3px;"
         @keyup.enter.native="handleFilter"
       />
-      <el-select v-model="listQuery.bk_code" placeholder="行业名称" style="width: 120px;margin-left:3px;">
+      <el-select v-model="listQuery.bkCode" placeholder="行业名称" style="width: 120px;margin-left:3px;">
         <el-option
           v-for="item in bkList"
           :key="item.bk_code"
@@ -21,16 +21,11 @@
           :value="item.bk_code"
         />
       </el-select>
-      <el-select v-model="listQuery.cy_status" placeholder="Cycle" style="width: 120px;margin-left:3px;">
-        <el-option
-          v-for="item in cyStatList"
-          :key="item.cy_statCode"
-          :label="item.cy_statName"
-          :value="item.cy_statCode"
-        />
-      </el-select>
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
+      </el-button>
+      <el-button class="filter-item" style="margin-left: 8px;" type="primary" @click="upWpXjFunc">
+        Sync
       </el-button>
     </div>
     <el-table
@@ -51,18 +46,18 @@
       <el-table-column label="名称" prop="sk_name" width="70" />
       <el-table-column label="行业" width="120" prop="bk2_name" />
       <el-table-column label="现价" width="60" prop="sk_xj" />
-      <el-table-column label="市值" width="60" prop="sk_ltsz" />
-      <el-table-column label="zdf" width="58" prop="sk_zdf" />
-      <el-table-column label="p5" width="59" prop="cy_p1" sortable />
-      <el-table-column label="p15" width="60" prop="cy_p2" />
-      <el-table-column label="p35" width="60" prop="cy_p3" />
-      <el-table-column label="zdt" width="66" prop="cy_zdt" sortable />
-      <el-table-column label="cycle" width="56" prop="cy_status" />
-      <el-table-column fixed="right" label="操作" width="160">
+      <el-table-column label="市值" align="center" width="60" prop="sk_ltsz" />
+      <el-table-column label="差价" align="center" width="52" prop="xj_zd" />
+      <el-table-column label="5m" align="center" width="66" prop="min1" sortable />
+      <el-table-column label="10m" align="center" width="50" prop="min2" />
+      <el-table-column label="15m" align="center" width="50" prop="min3" />
+      <el-table-column label="20m" align="center" width="50" prop="min4" />
+      <el-table-column label="25m" align="center" width="50" prop="min5" />
+      <el-table-column label="30m" align="center" width="50" prop="min6" />
+      <el-table-column label="涨跌天" align="center" width="82" prop="fx_zdt" sortable />
+      <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
-          <el-button type="text" size="small" @click="upCyStatusFunc(scope.row,1)">升</el-button>
-          <el-button type="text" size="small" @click="upCyStatusFunc(scope.row,-1)">降</el-button>
-          <el-button type="text" size="small" @click="addCycleWpFunc(scope.row)">GoWP</el-button>
+          <el-button type="text" size="small" @click="delCycleWpFunc(scope.row)">移除</el-button>
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
         </template>
       </el-table-column>
@@ -80,11 +75,11 @@
 </template>
 
 <script>
-import { addCycleWp, getBkList, getCyclePage, upCyStatus } from '@/api/stock'
+import { delCycleWp, getBkList, getWpPage, upWpXj } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
 export default {
-  name: 'SkFxCycle',
+  name: 'SkWpFx',
   components: { Pagination },
   data() {
     return {
@@ -96,38 +91,12 @@ export default {
         limit: 30,
         sk_code: '',
         sk_name: '',
-        bk_code: '',
-        cy_status: '',
-        sort: 'sk_code'
+        bkCode: '',
+        sort: 'xj_zd'
       },
       bkList: [{
         bk_code: '行业',
         bk_name: ''
-      }],
-      cyStatList: [{
-        cy_statCode: '',
-        cy_statName: 'Cycle'
-      }, {
-        cy_statCode: '5',
-        cy_statName: '飞龙'
-      }, {
-        cy_statCode: '4',
-        cy_statName: '跃龙'
-      }, {
-        cy_statCode: '3',
-        cy_statName: '惕龙'
-      }, {
-        cy_statCode: '2',
-        cy_statName: '见龙'
-      }, {
-        cy_statCode: '1',
-        cy_statName: '潜龙'
-      }, {
-        cy_statCode: '0',
-        cy_statName: '亢龙'
-      }, {
-        cy_statCode: '-1',
-        cy_statName: '待评'
       }]
     }
   },
@@ -136,9 +105,9 @@ export default {
     this.getBkListFunc()
   },
   methods: {
-    upCyStatusFunc(row, cy_status) {
-      // 添加个股至尾盘观察区
-      upCyStatus({ sk_code: row.sk_code, cy_status: cy_status }).then(() => {
+    upWpXjFunc() {
+      // 更新Wp股价
+      upWpXj().then(() => {
         this.$notify({
           title: 'Success',
           message: 'Update Successfully',
@@ -148,12 +117,12 @@ export default {
         this.fetchData()
       })
     },
-    addCycleWpFunc(row) {
-      // 添加个股至尾盘观察区
-      addCycleWp({ sk_code: row.sk_code }).then(() => {
+    delCycleWpFunc(row) {
+      // 将个股从尾盘观察区移除
+      delCycleWp({ sk_code: row.sk_code }).then(() => {
         this.$notify({
           title: 'Success',
-          message: 'add Successfully',
+          message: 'Deleted Successfully',
           type: 'success',
           duration: 2000
         })
@@ -178,7 +147,7 @@ export default {
     },
     fetchData() {
       this.listLoading = false
-      getCyclePage(this.listQuery).then(response => {
+      getWpPage(this.listQuery).then(response => {
         this.list = response.data.result
         this.total = response.data.total
         this.listLoading = false

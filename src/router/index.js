@@ -1,16 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-Vue.use(Router)
-
 /* Layout */
 import Layout from '@/layout'
-
 /* Router Modules */
 import habitRouter from './modules/habit'
-import stockRouter from './modules/stock'
+import cycleRouter from './modules/cycle'
 import idcRouter from './modules/idc'
 import reportRouter from './modules/report'
+
+Vue.use(Router)
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -91,7 +89,7 @@ export const constantRoutes = [
  */
 export const asyncRoutes = [
   idcRouter,
-  stockRouter,
+  cycleRouter,
   reportRouter,
   habitRouter,
   {

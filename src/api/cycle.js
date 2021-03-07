@@ -1,5 +1,14 @@
 import request from '@/utils/request'
 
+// 更新Wp现价
+export function upWpXj(params) {
+  return request({
+    url: '/apis/cycle/wp/upWpXj',
+    method: 'get',
+    params
+  })
+}
+
 // 修改CyStatus
 export function upCyStatus(params) {
   return request({
@@ -48,43 +57,7 @@ export function addCycleWp(params) {
 // 查询板块下拉框
 export function getBkList(params) {
   return request({
-    url: '/apis/stock/select/bk',
-    method: 'get',
-    params
-  })
-}
-
-// 查询我的收藏
-export function getCollectList(params) {
-  return request({
-    url: '/apis/sk_collect/list',
-    method: 'get',
-    params
-  })
-}
-
-// 添加我的收藏
-export function addCollect(data) {
-  return request({
-    url: '/apis/sk_collect/add',
-    method: 'post',
-    data
-  })
-}
-
-// 添加我的收藏
-export function updateGj(data) {
-  return request({
-    url: '/apis/sk_collect/updateGj',
-    method: 'get',
-    data
-  })
-}
-
-// 移除我的收藏
-export function delCollect(params) {
-  return request({
-    url: '/apis/sk_collect/del',
+    url: '/apis/cycle/bs/bkList',
     method: 'get',
     params
   })
@@ -93,7 +66,7 @@ export function delCollect(params) {
 // 查询股票超市列表
 export function getMarketList(params) {
   return request({
-    url: '/apis/stock/market/list',
+    url: '/apis/cycle/sk/hot',
     method: 'get',
     params
   })

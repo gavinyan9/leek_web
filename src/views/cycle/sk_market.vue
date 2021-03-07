@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { getBkList, getMarketList } from '@/api/stock'
+import { getBkList, getMarketList } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
 export default {

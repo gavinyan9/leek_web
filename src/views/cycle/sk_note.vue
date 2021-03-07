@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import { getNotes, saveNotes } from '@/api/stock'
+import { getNotes, saveNotes } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
 export default {

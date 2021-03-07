@@ -81,7 +81,7 @@
 
 <script>
 import { delCompany, profitYearPages } from '@/api/idc'
-import { getBkList } from '@/api/stock'
+import { getBkList } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
 export default {

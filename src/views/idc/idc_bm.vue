@@ -47,12 +47,10 @@
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />
       <el-table-column label="2D" align="center" width="56" prop="day2" />
       <el-table-column label="3D" align="center" width="52" prop="day3" />
-      <el-table-column label="last3" align="center" width="50" prop="last3" />
-      <el-table-column label="last5" align="center" width="50" prop="last5" />
       <el-table-column label="30D" align="center" width="68" prop="mon1" sortable />
       <el-table-column label="60D" align="center" width="52" prop="mon2" />
       <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
-      <el-table-column label="市值" align="center" width="56" prop="sk_ltsz" />
+      <el-table-column label="市值" align="center" width="60" prop="sk_ltsz" />
       <el-table-column fixed="right" label="操作" width="50">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>

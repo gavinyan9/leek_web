@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import { getBkList } from '@/api/stock'
+import { getBkList } from '@/api/cycle'
 import { getPfDayPages } from '@/api/idc'
 import Pagination from '@/components/Pagination'
 
