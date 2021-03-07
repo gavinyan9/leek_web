@@ -37,8 +37,22 @@
       <el-table-column label="1D" width="62" prop="sk_zdf" sortable />
       <el-table-column label="涨跌天" width="90" prop="fx_zdt" sortable />
       <el-table-column label="总涨跌" width="90" prop="last_zdf" sortable />
-      <el-table-column fixed="right" label="操作" width="90">
+      <el-table-column prop="cy_status" width="56" label="cycle">
+        <template scope="scope">
+          {{ scope.row.cy_status === -1 ? '待评': '' }}
+          {{ scope.row.cy_status === 0 ? '亢龙': '' }}
+          {{ scope.row.cy_status === 1 ? '潜龙': '' }}
+          {{ scope.row.cy_status === 2 ? '见龙': '' }}
+          {{ scope.row.cy_status === 3 ? '惕龙': '' }}
+          {{ scope.row.cy_status === 4 ? '跃龙': '' }}
+          {{ scope.row.cy_status === 5 ? '飞龙': '' }}
+        </template>
+      </el-table-column>
+      <el-table-column fixed="right" label="操作" width="160">
         <template slot-scope="scope">
+          <el-button type="text" size="small" @click="upCyStatusFunc(scope.row,1)">升</el-button>
+          <el-button type="text" size="small" @click="upCyStatusFunc(scope.row,-1)">降</el-button>
+          <el-button type="text" size="small" @click="addCycleWpFunc(scope.row)">GoWP</el-button>
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
         </template>
       </el-table-column>
@@ -54,7 +68,7 @@
 </template>
 
 <script>
-import { getBkList, getMarketList } from '@/api/cycle'
+import { addCycleWp, getBkList, getMarketList, upCyStatus } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -88,6 +102,30 @@ export default {
     this.getBkListFunc()
   },
   methods: {
+    upCyStatusFunc(row, cy_status) {
+      // 添加个股至尾盘观察区
+      upCyStatus({ sk_code: row.sk_code, cy_status: cy_status }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'Update Successfully',
+          type: 'success',
+          duration: 2000
+        })
+        this.fetchData()
+      })
+    },
+    addCycleWpFunc(row) {
+      // 添加个股至尾盘观察区
+      addCycleWp({ sk_code: row.sk_code }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'add Successfully',
+          type: 'success',
+          duration: 2000
+        })
+        this.fetchData()
+      })
+    },
     getBkListFunc() {
       getBkList().then(response => {
         this.bkList = response.data

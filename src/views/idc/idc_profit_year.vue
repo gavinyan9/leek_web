@@ -58,7 +58,6 @@
       <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
-          <el-button type="text" size="small" @click="delCompanyFunc(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -75,7 +74,7 @@
 </template>
 
 <script>
-import { delCompany, profitYearPages } from '@/api/idc'
+import { profitYearPages } from '@/api/idc'
 import { getBkList } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
@@ -148,17 +147,6 @@ export default {
     handleFilter() {
       this.listQuery.page = 1
       this.fetchData()
-    },
-    delCompanyFunc(row) {
-      delCompany({ sk_code: row.skCode }).then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'Deleted Successfully',
-          type: 'success',
-          duration: 2000
-        })
-        this.fetchData()
-      })
     },
     goDetail(row) {
       window.open('http://stockpage.10jqka.com.cn/' + row.skCode)

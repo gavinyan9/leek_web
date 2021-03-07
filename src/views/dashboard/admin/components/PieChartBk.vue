@@ -47,23 +47,17 @@ export default {
       var data1 = []
       var data2 = []
 
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < 20; i++) {
         xAxisData.push('Class' + i)
         data1.push((Math.random() * 2).toFixed(2))
         data2.push(-Math.random().toFixed(2))
       }
 
-      var emphasisStyle = {
-        itemStyle: {
-          shadowBlur: 10,
-          shadowColor: 'rgba(0,0,0,0.3)'
-        }
-      }
       this.chart.setOption({
         color: ['#f4516c', '#34bfa3'],
         legend: {
           data: ['上涨', '下跌'],
-          left: '10%'
+          left: '5%'
         },
         brush: {
           toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
@@ -79,31 +73,32 @@ export default {
         },
         tooltip: {},
         xAxis: {
-          data: xAxisData,
           //  name: 'X Axis',
-          axisLine: { onZero: true },
-          splitLine: { show: false },
-          splitArea: { show: false }
+          data: xAxisData,
+          type: 'category',
+          // 坐标轴斜着显示
+          axisLabel: {
+            interval: 0,
+            rotate: 40
+          }
         },
         yAxis: {},
         grid: {
           left: '5%',
-          right: '2%',
-          bottom: 30
+          right: '1%',
+          bottom: 50
         },
         series: [
           {
             name: '上涨',
             type: 'bar',
             stack: 'one',
-            emphasis: emphasisStyle,
             data: data1
           },
           {
             name: '下跌',
             type: 'bar',
             stack: 'one',
-            emphasis: emphasisStyle,
             data: data2
           }
         ]
@@ -120,14 +115,14 @@ export default {
               name: '上涨',
               type: 'bar',
               stack: 'one',
-              emphasis: emphasisStyle,
+              barWidth: 22,
               data: response.data.data1
             },
             {
               name: '下跌',
               type: 'bar',
               stack: 'one',
-              emphasis: emphasisStyle,
+              barWidth: 22,
               data: response.data.data2
             }
           ]

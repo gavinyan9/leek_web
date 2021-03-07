@@ -49,7 +49,7 @@
       <el-table-column label="20m" align="center" width="50" prop="min4" />
       <el-table-column label="25m" align="center" width="50" prop="min5" />
       <el-table-column label="30m" align="center" width="50" prop="min6" />
-      <el-table-column label="涨跌天" align="center" width="82" prop="fx_zdt" sortable />
+      <el-table-column label="涨跌天" align="center" width="82" prop="cy_zdt" sortable />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="delCycleWpFunc(scope.row)">移除</el-button>

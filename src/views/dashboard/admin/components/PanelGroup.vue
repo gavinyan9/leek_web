@@ -49,7 +49,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Free
+            Fly
           </div>
           <count-to :start-val="0" :end-val="loadData.freeMoney" :duration="2600" class="card-panel-num" />
         </div>
@@ -85,7 +85,7 @@ export default {
         if (response.data) {
           this.loadData.holdMoney = response.data.holdMoney
           this.loadData.monthIncomes = response.data.monthIncomes
-          this.loadData.freeMoney = response.data.freeMon - response.data.holdMoney
+          this.loadData.freeMoney = response.data.freeMon
         }
       })
     }
