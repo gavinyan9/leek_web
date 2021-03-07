@@ -22,11 +22,6 @@
       </el-button>
     </div>
     <el-table v-loading="listLoading" :data="list" element-loading-text="Loading" border fit highlight-current-row>
-      <el-table-column align="center" label="ID" width="40">
-        <template slot-scope="scope">
-          {{ scope.$index+1 }}
-        </template>
-      </el-table-column>
       <el-table-column align="center" prop="createdAt" label="created_at" width="96" />
       <el-table-column label="notes" prop="notes" />
       <el-table-column fixed="right" label="操作" width="50">

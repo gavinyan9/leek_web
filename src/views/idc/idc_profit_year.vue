@@ -42,24 +42,19 @@
       highlight-current-row
       @sort-change="changeSort"
     >
-      <el-table-column align="center" label="序号" width="50">
-        <template slot-scope="scope">
-          {{ scope.$index+1 }}
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="代码" prop="skCode" width="68" />
-      <el-table-column label="名称" prop="skName" width="70" />
-      <el-table-column label="行业" width="70" prop="bkName" />
-      <el-table-column label="行业细分" prop="bk2Name" width="96" sortable />
-      <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="涨跌" width="52" prop="skZdf" />
+
+      <el-table-column label="代码" prop="sk_code" width="66" />
+      <el-table-column label="名称" prop="sk_name" width="70" />
+      <el-table-column label="行业" width="80" prop="bk_name" />
+      <el-table-column label="行业细分" width="98" prop="bk2_name" />
+      <el-table-column label="现价" width="60" prop="sk_xj" />
+      <el-table-column label="涨跌" width="52" prop="sk_zdf" />
       <el-table-column label="月度" align="center" width="70" prop="mon1" sortable />
       <el-table-column label="2021" align="center" width="72" prop="year1" sortable />
       <el-table-column label="2020" align="center" width="52" prop="year2" />
       <el-table-column label="2019" align="center" width="52" prop="year3" />
       <el-table-column label="2018" align="center" width="52" prop="year4" />
-      <el-table-column label="市值" align="center" width="56" prop="skLtsz" />
-      <el-table-column label="评分" align="center" width="46" prop="skScore" />
+      <el-table-column label="市值" align="center" width="56" prop="sk_ltsz" />
       <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>

@@ -1,16 +1,9 @@
 import request from '@/utils/request'
+
 // 查询交易日各板块翻红率
 export function getBkZdfInfo(params) {
   return request({
     url: '/apis/report/bk/zdf',
-    method: 'get',
-    params
-  })
-}
-// 收益信息日报
-export function getIncomeDay(params) {
-  return request({
-    url: '/apis/report/income/day',
     method: 'get',
     params
   })
@@ -37,7 +30,7 @@ export function getHolds(params) {
 // 投资板块比例
 export function getBkHolds(params) {
   return request({
-    url: '/apis/report/bk/hold',
+    url: '/apis/report/bk/zdf/line',
     method: 'get',
     params
   })

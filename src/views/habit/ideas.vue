@@ -19,11 +19,6 @@
       fit
       highlight-current-row
     >
-      <el-table-column align="center" label="ID" width="95">
-        <template slot-scope="scope">
-          {{ scope.$index +1 }}
-        </template>
-      </el-table-column>
       <el-table-column label="Title">
         <template slot-scope="scope">
           <span>{{ scope.row.my_idea }}</span>
@@ -41,13 +36,7 @@
           <span>{{ scope.row.my_date }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
-        <template slot-scope="{row,$index}">
-          <el-button v-if="row.idea_status=='0'" size="mini" type="success">
-            创建计划
-          </el-button>
-        </template>
-      </el-table-column>
+      <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width" />
     </el-table>
 
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">

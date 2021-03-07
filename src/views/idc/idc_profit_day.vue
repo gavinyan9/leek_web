@@ -34,16 +34,11 @@
       highlight-current-row
       @sort-change="changeSort"
     >
-      <el-table-column align="center" label="序号" width="46">
-        <template slot-scope="scope">
-          {{ scope.$index+1 }}
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="代码" prop="skCode" width="66" />
-      <el-table-column label="名称" prop="skName" width="70" />
-      <el-table-column label="行业" width="80" prop="bkName" />
-      <el-table-column label="现价" width="60" prop="skXj" />
-      <el-table-column label="市值" align="center" width="66" prop="skLtsz" />
+      <el-table-column label="代码" prop="sk_code" width="66" />
+      <el-table-column label="名称" prop="sk_name" width="70" />
+      <el-table-column label="行业" width="80" prop="bk_name" />
+      <el-table-column label="现价" width="60" prop="sk_xj" />
+      <el-table-column label="市值" align="center" width="66" prop="sk_ltsz" />
       <el-table-column label="年化" align="center" width="70" prop="year1" sortable />
       <el-table-column label="月度" align="center" width="70" prop="mon1" sortable />
       <el-table-column label="1D" align="center" width="66" prop="day1" sortable />

@@ -4,8 +4,10 @@
 
 <script>
 import echarts from 'echarts'
-require('echarts/theme/macarons') // echarts theme
 import { getBkHolds } from '@/api/report'
+
+require('echarts/theme/macarons') // echarts theme
+
 export default {
   props: {
     className: {
@@ -41,34 +43,68 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
+      var xAxisData = []
+      var data1 = []
+      var data2 = []
 
+      for (var i = 0; i < 10; i++) {
+        xAxisData.push('Class' + i)
+        data1.push((Math.random() * 2).toFixed(2))
+        data2.push(-Math.random().toFixed(2))
+      }
+
+      var emphasisStyle = {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowColor: 'rgba(0,0,0,0.3)'
+        }
+      }
       this.chart.setOption({
-        title: {
-          text: '板块'
-        },
-        tooltip: {
-          trigger: 'item',
-          formatter: '{a} <br/>{b} : {c} ({d}%)'
-        },
+        color: ['#f4516c', '#34bfa3'],
         legend: {
-          left: 'center',
-          bottom: '10',
-          data: ['Industries', 'Technology', 'Forex']
+          data: ['上涨', '下跌'],
+          left: '10%'
+        },
+        brush: {
+          toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
+          xAxisIndex: 0
+        },
+        toolbox: {
+          feature: {
+            magicType: {
+              type: ['stack', 'tiled']
+            },
+            dataView: {}
+          }
+        },
+        tooltip: {},
+        xAxis: {
+          data: xAxisData,
+          //  name: 'X Axis',
+          axisLine: { onZero: true },
+          splitLine: { show: false },
+          splitArea: { show: false }
+        },
+        yAxis: {},
+        grid: {
+          left: '5%',
+          right: '2%',
+          bottom: 30
         },
         series: [
           {
-            name: '板块',
-            type: 'pie',
-            roseType: 'radius',
-            radius: [16, 96],
-            center: ['50%', '46%'],
-            data: [
-              { value: 168, name: 'Industries' },
-              { value: 88, name: 'Technology' },
-              { value: 66, name: 'Forex' }
-            ],
-            animationEasing: 'cubicInOut',
-            animationDuration: 3600
+            name: '上涨',
+            type: 'bar',
+            stack: 'one',
+            emphasis: emphasisStyle,
+            data: data1
+          },
+          {
+            name: '下跌',
+            type: 'bar',
+            stack: 'one',
+            emphasis: emphasisStyle,
+            data: data2
           }
         ]
       })
@@ -76,9 +112,25 @@ export default {
       getBkHolds().then(response => {
         // 投资板块比例(饼状图)
         this.chart.setOption({
-          series: [{
-            data: response.data.reportData
-          }]
+          xAxis: {
+            data: response.data.xAxisData
+          },
+          series: [
+            {
+              name: '上涨',
+              type: 'bar',
+              stack: 'one',
+              emphasis: emphasisStyle,
+              data: response.data.data1
+            },
+            {
+              name: '下跌',
+              type: 'bar',
+              stack: 'one',
+              emphasis: emphasisStyle,
+              data: response.data.data2
+            }
+          ]
         })
       })
     }

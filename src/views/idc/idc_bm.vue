@@ -34,11 +34,6 @@
       highlight-current-row
       @sort-change="changeSort"
     >
-      <el-table-column align="center" label="序号" width="46">
-        <template slot-scope="scope">
-          {{ scope.$index+1 }}
-        </template>
-      </el-table-column>
       <el-table-column label="代码" prop="sk_code" width="68" />
       <el-table-column label="名称" prop="sk_name" width="78" />
       <el-table-column label="行业" width="90" prop="bk2_name" />
