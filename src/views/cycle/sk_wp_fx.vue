@@ -44,11 +44,11 @@
       <el-table-column label="市值" align="center" width="60" prop="sk_ltsz" />
       <el-table-column label="差价" align="center" width="52" prop="xj_zd" />
       <el-table-column label="5m" align="center" width="66" prop="min1" sortable />
-      <el-table-column label="10m" align="center" width="50" prop="min2" />
-      <el-table-column label="15m" align="center" width="50" prop="min3" />
-      <el-table-column label="20m" align="center" width="50" prop="min4" />
-      <el-table-column label="25m" align="center" width="50" prop="min5" />
-      <el-table-column label="30m" align="center" width="50" prop="min6" />
+      <el-table-column label="10m" align="center" width="52" prop="min2" />
+      <el-table-column label="15m" align="center" width="52" prop="min3" />
+      <el-table-column label="20m" align="center" width="52" prop="min4" />
+      <el-table-column label="25m" align="center" width="52" prop="min5" />
+      <el-table-column label="30m" align="center" width="52" prop="min6" />
       <el-table-column label="涨跌天" align="center" width="82" prop="cy_zdt" sortable />
       <el-table-column fixed="right" label="操作" width="120">
         <template slot-scope="scope">

@@ -32,6 +32,9 @@
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
+      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncCyQ5Func">
+        CyQ5
+      </el-button>
     </div>
     <el-table
       v-loading="listLoading"
@@ -48,7 +51,7 @@
       <el-table-column label="现价" width="60" prop="sk_xj" />
       <el-table-column label="市值" width="60" prop="sk_ltsz" />
       <el-table-column label="zdf" width="56" prop="sk_zdf" />
-      <el-table-column label="p5" width="59" prop="cy_p1" sortable />
+      <el-table-column label="p5" width="62" prop="cy_p1" sortable />
       <el-table-column label="p15" width="58" prop="cy_p2" />
       <el-table-column label="p35" width="58" prop="cy_p3" />
       <el-table-column label="zdt" width="66" prop="cy_zdt" sortable />
@@ -75,7 +78,7 @@
 </template>
 
 <script>
-import { addCycleWp, getBkList, getCyclePage, upCyStatus } from '@/api/cycle'
+import { addCycleWp, getBkList, getCyclePage, upCyStatus, syncCyQ5Gj } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -131,6 +134,18 @@ export default {
     this.getBkListFunc()
   },
   methods: {
+    syncCyQ5Func() {
+      // 龙头法同步数据
+      syncCyQ5Gj().then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'sync Successfully',
+          type: 'success',
+          duration: 1000
+        })
+        this.fetchData()
+      })
+    },
     upCyStatusFunc(row, cy_status) {
       // 添加个股至尾盘观察区
       upCyStatus({ sk_code: row.sk_code, cy_status: cy_status }).then(() => {
