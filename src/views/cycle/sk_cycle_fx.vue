@@ -35,6 +35,9 @@
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncCyQ5Func">
         CyQ5
       </el-button>
+      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncDayGjFunc">
+        同步
+      </el-button>
     </div>
     <el-table
       v-loading="listLoading"
@@ -78,7 +81,7 @@
 </template>
 
 <script>
-import { addCycleWp, getBkList, getCyclePage, upCyStatus, syncCyQ5Gj } from '@/api/cycle'
+import { addCycleWp, getBkList, getCyclePage, upCyStatus, syncCyQ5Gj, syncDayGj } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -134,6 +137,18 @@ export default {
     this.getBkListFunc()
   },
   methods: {
+    syncDayGjFunc() {
+      // 全量股价同步
+      syncDayGj().then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'sync Successfully',
+          type: 'success',
+          duration: 1000
+        })
+        this.fetchData()
+      })
+    },
     syncCyQ5Func() {
       // 龙头法同步数据
       syncCyQ5Gj().then(() => {

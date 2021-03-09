@@ -24,9 +24,6 @@
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
-      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncDayGjFunc">
-        同步
-      </el-button>
     </div>
     <el-table
       v-loading="listLoading"
@@ -64,7 +61,7 @@
 </template>
 
 <script>
-import { companyPages, syncDayGj } from '@/api/idc'
+import { companyPages } from '@/api/idc'
 import { getBkList } from '@/api/cycle'
 
 import Pagination from '@/components/Pagination'
@@ -105,18 +102,6 @@ export default {
         this.bkList = response.data
       })
     },
-    syncDayGjFunc() {
-      syncDayGj().then(() => {
-        this.$notify({
-          title: 'Success',
-          message: 'sync Successfully',
-          type: 'success',
-          duration: 1000
-        })
-        this.fetchData()
-      })
-    },
-
     handleFilter() {
       this.listQuery.page = 1
       this.fetchData()
@@ -130,7 +115,7 @@ export default {
       this.dialogFormVisible = true
     },
     goDetail(row) {
-      window.open('http://stockpage.10jqka.com.cn/' + row.skCode)
+      window.open('http://stockpage.10jqka.com.cn/' + row.sk_code)
     },
     fetchData() {
       this.listLoading = false

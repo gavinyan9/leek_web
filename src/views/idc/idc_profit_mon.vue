@@ -116,7 +116,7 @@ export default {
       this.fetchData()
     },
     goDetail(row) {
-      window.open('http://stockpage.10jqka.com.cn/' + row.skCode)
+      window.open('http://stockpage.10jqka.com.cn/' + row.sk_code)
     },
     fetchData() {
       this.listLoading = false
