@@ -39,11 +39,10 @@
       <el-table-column label="总涨跌" width="90" prop="last_zdf" sortable />
       <el-table-column prop="cy_status" width="56" label="cycle">
         <template scope="scope">
-          {{ scope.row.cy_status === -1 ? '待评': '' }}
-          {{ scope.row.cy_status === 0 ? '亢龙': '' }}
-          {{ scope.row.cy_status === 1 ? '潜龙': '' }}
-          {{ scope.row.cy_status === 2 ? '见龙': '' }}
-          {{ scope.row.cy_status === 3 ? '惕龙': '' }}
+          {{ scope.row.cy_status === 0 ? '待评': '' }}
+          {{ scope.row.cy_status === 1 ? '亢龙': '' }}
+          {{ scope.row.cy_status === 2 ? '潜龙': '' }}
+          {{ scope.row.cy_status === 3 ? '见龙': '' }}
           {{ scope.row.cy_status === 4 ? '跃龙': '' }}
           {{ scope.row.cy_status === 5 ? '飞龙': '' }}
         </template>

@@ -7,7 +7,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Rising
+            Thinking
           </div>
           <count-to :start-val="0" :end-val="loadData.rising" :duration="1200" class="card-panel-num" />
         </div>
@@ -21,7 +21,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Thinking
+            Rising
           </div>
           <count-to :start-val="0" :end-val="loadData.thinking" :duration="600" class="card-panel-num" />
         </div>

@@ -58,7 +58,16 @@
       <el-table-column label="p15" width="58" prop="cy_p2" />
       <el-table-column label="p35" width="58" prop="cy_p3" />
       <el-table-column label="zdt" width="66" prop="cy_zdt" sortable />
-      <el-table-column label="cycle" width="56" prop="cy_status" />
+      <el-table-column prop="cy_status" width="56" label="cycle">
+        <template scope="scope">
+          {{ scope.row.cy_status === 0 ? '待评': '' }}
+          {{ scope.row.cy_status === 1 ? '亢龙': '' }}
+          {{ scope.row.cy_status === 2 ? '潜龙': '' }}
+          {{ scope.row.cy_status === 3 ? '见龙': '' }}
+          {{ scope.row.cy_status === 4 ? '跃龙': '' }}
+          {{ scope.row.cy_status === 5 ? '飞龙': '' }}
+        </template>
+      </el-table-column>
       <el-table-column fixed="right" label="操作" width="160">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="upCyStatusFunc(scope.row,1)">升</el-button>
@@ -81,7 +90,8 @@
 </template>
 
 <script>
-import { addCycleWp, getBkList, getCyclePage, upCyStatus, syncCyQ5Gj, syncDayGj } from '@/api/cycle'
+import { addCycleWp, getBkList, getCyclePage, upCyStatus, syncCyQ5Gj } from '@/api/cycle'
+import { syncDayGj } from '@/api/idc'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -116,15 +126,12 @@ export default {
         cy_statName: '跃龙'
       }, {
         cy_statCode: '3',
-        cy_statName: '惕龙'
-      }, {
-        cy_statCode: '2',
         cy_statName: '见龙'
       }, {
-        cy_statCode: '1',
+        cy_statCode: '2',
         cy_statName: '潜龙'
       }, {
-        cy_statCode: '0',
+        cy_statCode: '1',
         cy_statName: '亢龙'
       }, {
         cy_statCode: '-1',
