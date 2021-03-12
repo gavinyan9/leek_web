@@ -33,10 +33,13 @@
         查询
       </el-button>
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncCyQ5Func">
-        CyQ5
+        顶部同步
+      </el-button>
+      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncCy4BkCodeFunc">
+        板块同步
       </el-button>
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncDayGjFunc">
-        同步
+        全量同步
       </el-button>
     </div>
     <el-table
@@ -90,7 +93,7 @@
 </template>
 
 <script>
-import { addCycleWp, getBkList, getCyclePage, upCyStatus, syncCyQ5Gj } from '@/api/cycle'
+import { addCycleWp, getBkList, getCyclePage, upCyStatus, syncCyQ5Gj, syncCy4BkCode } from '@/api/cycle'
 import { syncDayGj } from '@/api/idc'
 import Pagination from '@/components/Pagination'
 
@@ -144,6 +147,18 @@ export default {
     this.getBkListFunc()
   },
   methods: {
+    syncCy4BkCodeFunc() {
+      //  龙头法->板块->同步数据
+      syncCy4BkCode({ bk_code: this.listQuery.bk_code }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'sync Successfully',
+          type: 'success',
+          duration: 1000
+        })
+        this.fetchData()
+      })
+    },
     syncDayGjFunc() {
       // 全量股价同步
       syncDayGj().then(() => {

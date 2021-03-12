@@ -1,6 +1,13 @@
 import request from '@/utils/request'
-
-// 龙头法数据同步
+// 龙头法->板块->同步数据
+export function syncCy4BkCode(params) {
+  return request({
+    url: '/apis/cycle/cy/sync/bk',
+    method: 'get',
+    params
+  })
+}
+// 龙头法->顶部数据->同步数据
 export function syncCyQ5Gj(params) {
   return request({
     url: '/apis/cycle/cy/syncCyQ5',
