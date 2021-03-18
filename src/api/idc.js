@@ -18,15 +18,6 @@ export function profitYearPages(params) {
   })
 }
 
-// 百强股分页查询
-export function getPfTotalPages(params) {
-  return request({
-    url: '/apis/idc/bm/pages',
-    method: 'get',
-    params
-  })
-}
-
 // 个股月收益率列表
 export function getPfMonPages(params) {
   return request({

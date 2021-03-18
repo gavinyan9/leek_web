@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+
 // 龙头法->板块->同步数据
 export function syncCy4BkCode(params) {
   return request({
@@ -7,6 +8,7 @@ export function syncCy4BkCode(params) {
     params
   })
 }
+
 // 龙头法->顶部数据->同步数据
 export function syncCyQ5Gj(params) {
   return request({
@@ -15,6 +17,7 @@ export function syncCyQ5Gj(params) {
     params
   })
 }
+
 // 更新Wp现价
 export function upWpXj(params) {
   return request({
@@ -64,15 +67,6 @@ export function delCycleWp(params) {
 export function addCycleWp(params) {
   return request({
     url: '/apis/cycle/wp/add',
-    method: 'get',
-    params
-  })
-}
-
-// 查询板块下拉框
-export function getBkList(params) {
-  return request({
-    url: '/apis/cycle/bs/bkList',
     method: 'get',
     params
   })

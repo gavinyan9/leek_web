@@ -4,16 +4,16 @@
       <el-input
         v-model="listQuery.sk_code"
         placeholder="sk_code"
-        style="width: 120px;"
+        style="width:100px;"
         @keyup.enter.native="handleFilter"
       />
       <el-input
         v-model="listQuery.sk_name"
         placeholder="sk_name"
-        style="width: 120px;margin-left:3px;"
+        style="width: 100px;margin-left:3px;"
         @keyup.enter.native="handleFilter"
       />
-      <el-select v-model="listQuery.bk_code" placeholder="行业名称" style="width: 120px;margin-left:3px;">
+      <el-select v-model="listQuery.bk_code" placeholder="行业名称" style="width:100px;margin-left:3px;">
         <el-option
           v-for="item in bkList"
           :key="item.bk_code"
@@ -21,7 +21,7 @@
           :value="item.bk_code"
         />
       </el-select>
-      <el-select v-model="listQuery.cy_status" placeholder="Cycle" style="width: 120px;margin-left:3px;">
+      <el-select v-model="listQuery.cy_status" placeholder="Cycle" style="width:100px;margin-left:3px;">
         <el-option
           v-for="item in cyStatList"
           :key="item.cy_statCode"
@@ -29,14 +29,22 @@
           :value="item.cy_statCode"
         />
       </el-select>
+      <el-select v-model="listQuery.gn_code" placeholder="概念模块" style="width:100px;margin-left:3px;">
+        <el-option
+          v-for="item in gnList"
+          :key="item.gn_code"
+          :label="item.gn_name"
+          :value="item.gn_code"
+        />
+      </el-select>
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="handleFilter">
         查询
       </el-button>
-      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncCyQ5Func">
-        顶部同步
-      </el-button>
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncCy4BkCodeFunc">
         板块同步
+      </el-button>
+      <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncCyQ5Func">
+        龙头同步
       </el-button>
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncDayGjFunc">
         全量同步
@@ -53,15 +61,16 @@
     >
       <el-table-column align="center" label="代码" prop="sk_code" width="66" />
       <el-table-column label="名称" prop="sk_name" width="70" />
-      <el-table-column label="行业" width="120" prop="bk2_name" />
+      <el-table-column label="行业" width="50" prop="bk_name" />
+      <el-table-column label="子行业" width="100" prop="bk2_name" />
       <el-table-column label="现价" width="60" prop="sk_xj" />
       <el-table-column label="市值" width="60" prop="sk_ltsz" />
       <el-table-column label="zdf" width="56" prop="sk_zdf" />
-      <el-table-column label="p5" width="62" prop="cy_p1" sortable />
-      <el-table-column label="p15" width="58" prop="cy_p2" />
-      <el-table-column label="p35" width="58" prop="cy_p3" />
-      <el-table-column label="zdt" width="66" prop="cy_zdt" sortable />
-      <el-table-column prop="cy_status" width="56" label="cycle">
+      <el-table-column label="P3" width="62" prop="cy_p1" sortable />
+      <el-table-column label="P5" width="58" prop="cy_p2" />
+      <el-table-column label="P35" width="58" prop="cy_p3" />
+      <el-table-column label="D" width="56" prop="cy_zdt" sortable />
+      <el-table-column prop="cy_status" width="49" label="Cy">
         <template scope="scope">
           {{ scope.row.cy_status === 0 ? '待评': '' }}
           {{ scope.row.cy_status === 1 ? '亢龙': '' }}
@@ -73,10 +82,10 @@
       </el-table-column>
       <el-table-column fixed="right" label="操作" width="160">
         <template slot-scope="scope">
+          <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
+          <el-button type="text" size="small" @click="addCycleWpFunc(scope.row)">GoWP</el-button>
           <el-button type="text" size="small" @click="upCyStatusFunc(scope.row,1)">升</el-button>
           <el-button type="text" size="small" @click="upCyStatusFunc(scope.row,-1)">降</el-button>
-          <el-button type="text" size="small" @click="addCycleWpFunc(scope.row)">GoWP</el-button>
-          <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -93,8 +102,9 @@
 </template>
 
 <script>
-import { addCycleWp, getBkList, getCyclePage, upCyStatus, syncCyQ5Gj, syncCy4BkCode } from '@/api/cycle'
+import { getSelectBk, getSelectGn } from '@/api/common'
 import { syncDayGj } from '@/api/idc'
+import { addCycleWp, getCyclePage, syncCy4BkCode, syncCyQ5Gj, upCyStatus } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -111,12 +121,17 @@ export default {
         sk_code: '',
         sk_name: '',
         bk_code: '',
+        gn_code: '',
         cy_status: '',
         sort: 'sk_code'
       },
       bkList: [{
         bk_code: '行业',
         bk_name: ''
+      }],
+      gnList: [{
+        gn_code: '',
+        gn_name: ''
       }],
       cyStatList: [{
         cy_statCode: '',
@@ -137,7 +152,7 @@ export default {
         cy_statCode: '1',
         cy_statName: '亢龙'
       }, {
-        cy_statCode: '-1',
+        cy_statCode: '0',
         cy_statName: '待评'
       }]
     }
@@ -145,6 +160,7 @@ export default {
   created() {
     this.fetchData()
     this.getBkListFunc()
+    this.getSelectGnFunc()
   },
   methods: {
     syncCy4BkCodeFunc() {
@@ -173,7 +189,7 @@ export default {
     },
     syncCyQ5Func() {
       // 龙头法同步数据
-      syncCyQ5Gj().then(() => {
+      syncCyQ5Gj({ cy_status: this.listQuery.cy_status }).then(() => {
         this.$notify({
           title: 'Success',
           message: 'sync Successfully',
@@ -208,8 +224,14 @@ export default {
       })
     },
     getBkListFunc() {
-      getBkList().then(response => {
+      getSelectBk().then(response => {
         this.bkList = response.data
+      })
+    },
+    getSelectGnFunc() {
+      // 查询概念下拉框
+      getSelectGn().then(response => {
+        this.gnList = response.data
       })
     },
     handleFilter() {

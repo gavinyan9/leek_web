@@ -27,11 +27,6 @@ const idcRouter = {
     name: '上市公司',
     component: () => import('@/views/idc/idc_company'),
     meta: { title: '上市公司', icon: 'chart' }
-  }, {
-    path: 'idc_bm',
-    name: '价投投资',
-    component: () => import('@/views/idc/idc_bm'),
-    meta: { title: '价投投资', icon: 'chart' }
   }]
 }
 
