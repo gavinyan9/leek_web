@@ -36,7 +36,6 @@
       <el-table-column label="成交额" width="86" prop="sk_cje" sortable />
       <el-table-column label="1D" width="62" prop="sk_zdf" sortable />
       <el-table-column label="涨跌天" width="90" prop="fx_zdt" sortable />
-      <el-table-column label="总涨跌" width="90" prop="last_zdf" sortable />
       <el-table-column prop="cy_status" width="56" label="cycle">
         <template scope="scope">
           {{ scope.row.cy_status === 0 ? '待评': '' }}

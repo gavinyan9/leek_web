@@ -8,11 +8,6 @@ const idcRouter = {
   component: Layout,
   meta: { title: 'IDC', icon: 'chart' },
   children: [{
-    path: 'pf_day',
-    name: '日收益率',
-    component: () => import('@/views/idc/idc_profit_day'),
-    meta: { title: '日收益率', icon: 'chart' }
-  }, {
     path: 'pf_mon',
     name: '月收益率',
     component: () => import('@/views/idc/idc_profit_mon'),
