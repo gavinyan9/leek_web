@@ -3,17 +3,17 @@
     <div class="filter-container" style="padding-bottom: 6px;">
       <el-input
         v-model="listQuery.sk_code"
-        placeholder="sk_code"
+        placeholder="code"
         style="width:80px;"
         @keyup.enter.native="handleFilter"
       />
       <el-input
         v-model="listQuery.sk_name"
-        placeholder="sk_name"
+        placeholder="name"
         style="width:80px;margin-left:3px;"
         @keyup.enter.native="handleFilter"
       />
-      <el-select v-model="listQuery.bk_code" placeholder="行业" style="width:80px;margin-left:3px;">
+      <el-select v-model="listQuery.bk_code" placeholder="行业" style="width:76px;margin-left:3px;">
         <el-option
           v-for="item in bkList"
           :key="item.bk_code"
@@ -21,7 +21,7 @@
           :value="item.bk_code"
         />
       </el-select>
-      <el-select v-model="listQuery.cy_status" placeholder="Cycle" style="width:80px;margin-left:3px;">
+      <el-select v-model="listQuery.cy_status" placeholder="Cycle" style="width:78px;margin-left:3px;">
         <el-option
           v-for="item in cyStatList"
           :key="item.cy_statCode"
@@ -29,7 +29,7 @@
           :value="item.cy_statCode"
         />
       </el-select>
-      <el-select v-model="listQuery.gn_code" placeholder="概念" style="width:80px;margin-left:3px;">
+      <el-select v-model="listQuery.gn_code" placeholder="概念" style="width:78px;margin-left:3px;">
         <el-option
           v-for="item in gnList"
           :key="item.gn_code"
@@ -41,7 +41,7 @@
         查询
       </el-button>
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncCy2BfFunc(1)">
-        板块同步
+        行业同步
       </el-button>
       <el-button class="filter-item" type="primary" style="margin-left: 3px;" @click="syncCy2BfFunc(2)">
         Cy同步
@@ -64,14 +64,13 @@
     >
       <el-table-column align="center" label="代码" prop="sk_code" width="66" />
       <el-table-column label="名称" prop="sk_name" width="70" />
-      <el-table-column label="行业" width="50" prop="bk_name" />
-      <el-table-column label="子行业" width="100" prop="bk2_name" />
+      <el-table-column label="行业" width="46" prop="bk_name" />
+      <el-table-column label="子行业" width="90" prop="bk2_name" />
       <el-table-column label="现价" width="60" prop="sk_xj" />
       <el-table-column label="市值" width="60" prop="sk_ltsz" />
       <el-table-column label="zdf" width="56" prop="sk_zdf" />
       <el-table-column label="P3" width="62" prop="cy_p1" sortable />
       <el-table-column label="P5" width="58" prop="cy_p2" />
-      <el-table-column label="P12" width="68" prop="cy_p12" sortable />
       <el-table-column label="P35" width="58" prop="cy_p3" />
       <el-table-column label="D" width="56" prop="cy_zdt" sortable />
       <el-table-column prop="cy_status" width="49" label="Cy">
