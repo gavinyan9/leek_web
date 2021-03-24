@@ -86,6 +86,7 @@
       <el-table-column fixed="right" label="操作" width="160">
         <template slot-scope="scope">
           <el-button type="text" size="small" @click="goDetail(scope.row)">详情</el-button>
+          <el-button type="text" size="small" @click="addGnSKFunc(scope.row)">收藏</el-button>
           <el-button type="text" size="small" @click="addCycleWpFunc(scope.row)">WP</el-button>
         </template>
       </el-table-column>
@@ -103,9 +104,9 @@
 </template>
 
 <script>
-import { getSelectBk, getSelectGn } from '@/api/common'
 import { syncDayGj } from '@/api/idc'
-import { addCycleWp, getCyclePage, syncCy2Bf } from '@/api/cycle'
+import { getSelectBk, getSelectGn } from '@/api/common'
+import { addCycleWp, getCyclePage, syncCy2Bf, addGnSK } from '@/api/cycle'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -164,6 +165,18 @@ export default {
     this.getSelectGnFunc()
   },
   methods: {
+    addGnSKFunc(row) {
+      // cycle->股票关联/移除->GN
+      addGnSK({ sk_code: row.sk_code, gn_code: this.listQuery.gn_code }).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: 'addGnSK Successfully',
+          type: 'success',
+          duration: 1000
+        })
+        this.fetchData()
+      })
+    },
     syncCy2BfFunc(bfFlag) {
       // cycle->部分数据同步
       // bfFlag 1按板块同步，2按周期同步，3按概念同步

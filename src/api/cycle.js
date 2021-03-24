@@ -1,4 +1,13 @@
 import request from '@/utils/request'
+
+//  cycle->股票关联/移除->GN
+export function addGnSK(params) {
+  return request({
+    url: '/apis/cycle/add/gnSk',
+    method: 'get',
+    params
+  })
+}
 // 部分数据同步
 export function syncCy2Bf(params) {
   return request({
